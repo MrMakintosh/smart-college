@@ -1,4 +1,30 @@
 Rails.application.routes.draw do
+  get 'student/index'
+
+  get 'student/new'
+
+  get 'student/edit'
+
+  get 'group/index'
+
+  get 'group/new'
+
+  get 'group/edit'
+
+  get 'specialty/index'
+
+  get 'specialty/new'
+
+  get 'specialty/edit'
+
+  get 'department/index'
+
+  get 'department/new'
+
+  get 'department/edit'
+
+  get 'department/create'
+
   root 'welcome_page#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
