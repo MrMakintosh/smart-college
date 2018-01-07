@@ -1,0 +1,346 @@
+/*
+  BODY
+ */
+body{
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  line-height: 1;
+}
+/*
+  HEADER
+ */
+header{
+  background-color: #224079;
+  //opacity: 0.8;
+  width: 100%;
+  height: 20%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+}
+div.app-name{
+  margin-top: 3%;
+  width: 33%;
+  font-size: 1.9em;
+  a{
+    color: white;
+    text-decoration: none;
+  }
+}
+img.logo, span.logo{
+  height: 100px;
+  width: 100px;
+  margin: 1%;
+  margin-left: 5%;
+  margin-right: 22%;
+}
+div.search{
+  margin-top: 3%;
+  margin-left: 5%;
+  height: 30%;
+  width: 26%;
+  input{
+    height: 60%;
+    width: 60%;
+    border: 1px solid white;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    float: left;
+  }
+  button{
+    height: 70%;
+    width: 15%;
+    border: 1px solid white;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: white;
+    font-weight: bold;
+    border-left-color: #2b5797;
+  }
+}
+span.logo, div.app-name, div.search{
+  float: left;
+}
+
+/*
+  MENU
+ */
+div.menu{
+  background-color: #224079;
+  width: 100%;
+  font-size: 1.3em;
+  letter-spacing: 0px;
+  float: left;
+}
+nav {
+  display: block;
+  text-align: center;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav a {
+  display: block;
+  background-color: #224079;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1.8em;
+  text-transform: uppercase;
+  font-size: 80%;
+  letter-spacing: 2px;
+  /* text-shadow: 0 -1px 0 #000; */
+  position: relative;
+}
+
+.nav {
+  vertical-align: top;
+  display: inline-block;
+  /* box-shadow: 1px -1px -1px 1px #000, -1px 1px -1px 1px #fff, 0 0 6px 3px #fff; */
+  border-radius: 6px;
+}
+
+.nav li {
+  position: relative;
+}
+
+.nav > li {
+  float: left;
+  border-bottom: 5px solid #aaa;
+  margin-right: 1px;
+}
+
+.nav > li > a {
+  margin-bottom: 1px;
+  /* box-shadow:inset 0 2em .33em -.5em #555; */
+}
+
+.nav > li:hover, .nav > li:hover > a {
+  border-bottom-color: lightblue;
+}
+
+.nav li:hover > a {
+  color: lightskyblue;
+}
+
+/*.nav > li:first-child {
+  border-radius: 4px 0 0 4px;
+}
+*/
+/*.nav > li:first-child > a {
+  border-radius: 4px 0 0 0;
+}
+*/
+.nav > li:last-child {
+  /* border-radius: 0 0 4px 0; */
+  margin-right: 0;
+}
+
+/*.nav > li:last-child > a {
+  border-radius: 0 4px 0 0;
+}
+*/
+.nav li li a {
+  margin-top: 1px;
+}
+
+/* Target all LI that has sub menu (ul)
+ * and draw an arrow (partialy)
+*/
+.nav li a:first-child:nth-last-child(2):before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  top: 50%;
+  right: 5px;
+}
+
+/* Submenu positioning */
+.nav ul {
+  position: absolute;
+  white-space: nowrap;
+  border-bottom: 5px solid lightblue;
+  z-index: 1;
+  left: -99999em;
+}
+
+.nav > li:hover > ul {
+  left: auto;
+  padding-top: 5px;
+  min-width: 100%;
+}
+
+/* ??? */
+.nav > li li ul {
+  border-left: 1px solid #fff;
+}
+
+/* Position submenu level 2+ */
+.nav > li li:hover > ul {
+  left: 100%;
+  top: -1px;
+}
+
+/* Arrow hover styling */
+.nav > li > a:first-child:nth-last-child(2):before {
+  border-top-color: #aaa;
+}
+
+/* Top level menu arrow up */
+.nav > li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent;
+  border-bottom-color: lightblue;
+  margin-top: -5px;
+}
+
+/* Submenu link to submenu arrow right */
+.nav li li > a:first-child:nth-last-child(2):before {
+  border-left-color: #aaa;
+  margin-top: -5px;
+}
+
+/* Submenu link to submenu arrow left */
+.nav li li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent;
+  border-right-color: lightblue;
+  right: 10px;
+}
+
+/*
+  CONTENT
+ */
+div.content{
+  margin-top: 15%;
+  text-align: center;
+  color: black;
+}
+
+/*
+  LOGIN FORM
+ */
+.container{
+  width: 300px;
+  height: 300px;
+  background-color: #f8f8f8;
+  background-image: -webkit-linear-gradient(top, #eee,#f8f8f8, #eee);
+  margin: 20px auto;
+  border-radius: 10px;
+  border: 1px solid #566d7f;
+  box-shadow: inset 0px 0px 0px 1px #fff, 0px 20px 15px -10px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+.container>label{
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 0px;
+  height: 0px;
+}
+.top, .bottom{
+  width: 300px;
+  height: 149px;
+  display: block;
+  background:#224079;
+  position: absolute;
+  -webkit-transition: all 600ms;
+  position: relative;
+  box-shadow: inset 0px 0px 40px rgba(0,0,0,0.4);
+}
+.top{
+  top: 0;
+  border-bottom: 1px solid #222;
+}
+.top:before{
+  content: '';
+  width: 170px;
+  height: 30px;
+  display:block;
+  background: #aaa;
+  position: absolute;
+  left: 150px;
+  bottom: -30px;
+  z-index:100;
+  -webkit-transform: skew(45deg);
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: -1px 1px #111, 1px -1px #111, -2px 2px #444, 2px -2px #333;
+}
+.bottom{
+  bottom:0;
+  border-top: 1px solid #222;
+}
+.bottom:before{
+  content: '';
+  width: 170px;
+  height: 30px;
+  display:block;
+  background: #aaa;
+  position: absolute;
+  right: 160px;
+  top: -30px;
+  z-index:100;
+  -webkit-transform: skew(45deg);
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 1px -1px #111, 2px -2px #333;
+}
+input[type=checkbox]{display: none;}
+.container input[type=checkbox]:checked + label b.top{
+  top: -140px;
+}
+.container input[type=checkbox]:checked + label b.bottom{
+  bottom: -140px;
+}
+.login h1{
+  padding: 10px 0px 5px 10px;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0px 1px #fff;
+}
+.login form{
+  margin-top: 10px;
+}
+.login form p{
+  padding: 10px 0px;
+}
+.login form label{
+  display: block;
+  width: 70px;
+  margin-left: 20px;
+  background: #ccc;
+  padding: 0px 3px;
+  border-radius: 0 30px 0 0;
+  color: #111;
+  text-shadow: 0px 1px 0px #eee;
+  border-top: 1px solid #f8f8f8;
+  border-right: 1px solid #fff;
+}
+.login form input{
+  border: 1px solid #ccc;
+  padding: 10px 0;
+  border-radius: 0 5px 5px 0;
+  width: 259px;
+  margin-left: 20px;
+  box-shadow: 1px 1px #fff;
+}
+.login form input[type=submit]{
+  margin: 15px 0px 0px 160px;
+  width: 130px;
+  background: #62a1d1;
+  border: 1px solid #446f8e;
+  border-radius: 3px;
+  box-shadow: inset 0px 20px 0px rgba(255,255,255,0.1);
+  font-size: 14px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0px 1px 0px rgba(0,0,0,0.5);
+}
+.login form input[type=submit]:hover{
+  box-shadow: inset 0px -20px 0px rgba(255,255,255,0.1);
+}
