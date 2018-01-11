@@ -12,31 +12,25 @@
         <li><a href="#">Главная</a></li>
         <li><a href="#">Списки</a>
           <ul>
-            <li><a href="#">ПГС</a>
-              <ul>
-                <li><a href="#">ЭиОП</a>
+            <% @department.each do |d| %>
+                <li><%= link_to "#{d.name}", department_index_path %>
+                <% if d.specialties %>
                   <ul>
-                    <li><a href="#">141-16</a></li>
-                    <li><a href="#">141-17</a></li>
+                    <% d.specialties.each do |s| %>
+                      <li><%= link_to "#{s.name}", specialty_index_path %>
+                        <% if s.groups %>
+                          <ul>
+                            <% s.groups.each do |g| %>
+                              <li><%= link_to "#{g.number}", group_index_path %></li>
+                            <% end %>
+                          </ul>
+                        <% end %>
+                      </li>
+                    <% end %>
                   </ul>
+                <% end %>
                 </li>
-                <li><a href="#">ПГС</a>
-                  <ul>
-                    <li><a href="#">111-15</a></li>
-                    <li><a href="#">112-15</a></li>
-                    <li><a href="#">113-15</a></li>
-                    <li><a href="#">111-16</a></li>
-                    <li><a href="#">112-16</a></li>
-                    <li><a href="#">113-16</a></li>
-                    <li><a href="#">111-17</a></li>
-                    <li><a href="#">112-17</a></li>
-                    <li><a href="#">113-17</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#">СТОЗ</a>
-            <li><a href="#">Заочное отделение</a></li>
+            <% end %>
           </ul>
         </li>
       </ul>
