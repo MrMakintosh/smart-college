@@ -6,10 +6,9 @@ gem 'rails', '4.2.6'
 gem 'pg'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby'
-gem 'devise'
-gem 'devise-i18n'
 gem 'will_paginate'
 gem 'spreadsheet'
+gem 'authlogic', '3.4.6'
 
 group :development do
   gem 'sqlite3'
