@@ -10,7 +10,8 @@ class UserSessionsController < ApplicationController
       flash[:success] = "Welcome back!"
       redirect_to root_path
     else
-      render :new
+      flash[:alert] = "Неправильный логин или пароль!"
+      redirect_to root_path
     end
   end
 
@@ -25,5 +26,6 @@ class UserSessionsController < ApplicationController
   def user_session_params
     params.require(:user_session).permit(:login, :password, :remember_me)
   end
-
+##TODO: commit "mathematics for user sign_in/sign_out was done. Need styles and front-end at all."
+##TODO: need passes realization for students and graphs showed in admin menu (make profile menu different for user and admin)
 end

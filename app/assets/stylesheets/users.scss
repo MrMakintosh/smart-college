@@ -1,3 +1,37 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table.profile{
+  border: 0px;
+  td{
+    padding: 10px;
+  }
+}
+.spoiler {
+  margin: 20px 30px 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: #fbf9f8 none;
+  border-radius: 5px;
+  border: 1px solid #535e6e;
+  position: relative;
+  top: 0;
+}
+.spoiler > h2 {
+  width: 100%;
+  font: italic normal 13px Tahoma,Calibri,Verdana,Geneva,sans-serif;
+  font-size: 11px;
+  padding: 3px 17px;
+  margin: 0 0 0 3px;
+  line-height: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.spoiler > div {
+  padding: 1px 6px 2px;
+  border-top: 1px solid #C3CBD1;
+  transition: all .2 ease-out;
+}
+.spoiler > div.hidden {
+  display: none;
+}

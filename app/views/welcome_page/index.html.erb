@@ -1,27 +1,5 @@
-<h1>Авторизация</h1>
-<p>Для просмотра или редактирования информации авторизуйтесь!</p>
-<div class="container">
-  <input type="checkbox" id="switch">
-  <label for="switch">
-    <b class="top"></b>
-    <b class="bottom"></b>
-  </label>
-  <div class="login">
-    <h1>Вход</h1>
-    <form action="#">
-      <p>
-        <label for="user">Логин</label>
-        <input type="text">
-      </p>
-      <p>
-        <label for="pass">Пароль</label>
-        <input type="password">
-      </p>
-      <p>
-        <input type="submit" value="Войти">
-      </p>
-
-    </form>
-  </div>
-
-</div>
+<% unless current_user_session.nil? %>
+  <% controller.redirect_to person_root_path%>
+<% else %>
+  <%= render "/layouts/sign_in" %>
+<% end %>

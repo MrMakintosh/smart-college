@@ -1,39 +1,9 @@
 <header>
   <span class="logo">
-    <img class="logo" src="<%= asset_path('Logo_200x200.ico')%>"/>
+    <a href="<%= root_path %>"><img class="logo" src="<%= asset_path('Logo_200x200.ico')%>"/></a>
   </span>
-  <div class="app-name">Smart passes application</div>
+  <div class="app-name">Придумать новое название</div>
   <div class="search">
     <input type="text"><button>Поиск</button>
-  </div>
-  <div class="menu">
-    <nav>
-      <ul class="nav">
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">Списки</a>
-          <ul>
-            <% @department.each do |d| %>
-                <li><%= link_to "#{d.name}", department_index_path %>
-                <% if d.specialties %>
-                  <ul>
-                    <% d.specialties.each do |s| %>
-                      <li><%= link_to "#{s.name}", specialty_index_path %>
-                        <% if s.groups %>
-                          <ul>
-                            <% s.groups.each do |g| %>
-                              <li><%= link_to "#{g.number}", group_index_path %></li>
-                            <% end %>
-                          </ul>
-                        <% end %>
-                      </li>
-                    <% end %>
-                  </ul>
-                <% end %>
-                </li>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
-    </nav>
   </div>
 </header>

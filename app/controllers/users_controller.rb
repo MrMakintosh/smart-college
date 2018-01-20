@@ -1,7 +1,15 @@
 class UsersController < ApplicationController
 
+  def profile
+    @department = Department.all
+  end
+
   def new
     @user = User.new
+  end
+
+  def show
+
   end
 
   def create

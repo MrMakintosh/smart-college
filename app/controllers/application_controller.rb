@@ -16,5 +16,5 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user_session, :current_user
-##TODO: add commit "generated models and controllers for users and sessions. AuthLogic gem was risen"
+
 end

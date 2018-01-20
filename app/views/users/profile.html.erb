@@ -1,0 +1,42 @@
+<h1>That is your profile menu!</h1>
+<center>
+  <table class="profile">
+    <tr>
+      <td>
+        <h2>Списки студентов</h2>
+        <div class="container">
+          <% @department.each do |d| %>
+            <div class="spoiler">
+              <h2><%= d.name %></h2>
+              <% if d.specialties %>
+                <div class="hidden">
+                  <% d.specialties.each do |s| %>
+                    <div class="spoiler">
+                      <h2><%= s.name %></h2>
+                      <% if s.groups %>
+                        <div class="hidden">
+                          <% s.groups.each do |g| %>
+                            <div class="spoiler">
+                              <h2><%= link_to "#{g.number}", group_index_path %></h2>
+                            </div>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </td>
+      <td>
+        <h2>Например, график пропусков</h2>
+        <div class="container">
+          something else
+        </div>
+      </td>
+    </tr>
+  </table>
+</center>
+<%= link_to 'Выйти', sign_out_path, method: :delete %>
