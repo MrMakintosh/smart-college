@@ -5,6 +5,9 @@ body{
  /*
     Maybe need some default styles here...
   */
+  font-family: 'house-script', 'sans-serif';
+  font-style: normal;
+  font-weight: 400;
 }
 /*
   HEADER
@@ -24,25 +27,30 @@ header{
   left: 0;
   z-index: 101;
 }
+/*
+  FONT
+ */
+@font-face {
+  font-family: house-script; /* имя шрифта для CSS правил */
+  src: local("SignPainter"), /* проверяем наличие шрифта в ОС пользователя */
+  url(asset_path(SignPainter));
+}
 div.app-name{
-  margin-top: 3%;
   width: 40%;
-  font-size: 1.3em;
-  a{
-    color: white;
-    text-decoration: none;
-  }
+  letter-spacing: 2.5px;
+  font-size: 24pt;
+  margin-top: 3%;
 }
 img.logo, span.logo{
   height: 100px;
   width: 100px;
   margin: 0.5%;
   margin-left: 5%;
-  margin-right: 15%;
+  margin-right: 25%;
 }
 div.search{
   margin-top: 3%;
-  margin-left: 5%;
+  margin-left: -150px;
   height: 30%;
   width: 26%;
   input{
@@ -69,162 +77,17 @@ span.logo, div.app-name, div.search{
 }
 
 /*
-  MENU
- */
-div.menu{
-  background-color: #224079;
-  width: 100%;
-  font-size: 1.3em;
-  letter-spacing: 0px;
-  float: left;
-  margin-top: -10px;
-}
-nav {
-  display: block;
-  text-align: center;
-}
-
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.nav a {
-  display: block;
-  background-color: #224079;
-  color: white;
-  text-decoration: none;
-  padding: .8em 1.8em;
-  text-transform: uppercase;
-  font-size: 80%;
-  letter-spacing: 2px;
-  /* text-shadow: 0 -1px 0 #000; */
-  position: relative;
-}
-
-.nav {
-  vertical-align: top;
-  display: inline-block;
-  /* box-shadow: 1px -1px -1px 1px #000, -1px 1px -1px 1px #fff, 0 0 6px 3px #fff; */
-  border-radius: 6px;
-}
-
-.nav li {
-  position: relative;
-}
-
-.nav > li {
-  float: left;
-  border-bottom: 5px solid #aaa;
-  margin-right: 1px;
-}
-
-.nav > li > a {
-  margin-bottom: 1px;
-  /* box-shadow:inset 0 2em .33em -.5em #555; */
-}
-
-.nav > li:hover, .nav > li:hover > a {
-  border-bottom-color: lightblue;
-}
-
-.nav li:hover > a {
-  color: lightskyblue;
-}
-
-/*.nav > li:first-child {
-  border-radius: 4px 0 0 4px;
-}
-*/
-/*.nav > li:first-child > a {
-  border-radius: 4px 0 0 0;
-}
-*/
-.nav > li:last-child {
-  /* border-radius: 0 0 4px 0; */
-  margin-right: 0;
-}
-
-/*.nav > li:last-child > a {
-  border-radius: 0 4px 0 0;
-}
-*/
-.nav li li a {
-  margin-top: 1px;
-}
-
-/* Target all LI that has sub menu (ul)
- * and draw an arrow (partialy)
-*/
-.nav li a:first-child:nth-last-child(2):before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: 5px solid transparent;
-  top: 50%;
-  right: 5px;
-}
-
-/* Submenu positioning */
-.nav ul {
-  position: absolute;
-  white-space: nowrap;
-  border-bottom: 5px solid lightblue;
-  z-index: 1;
-  left: -99999em;
-}
-
-.nav > li:hover > ul {
-  left: auto;
-  padding-top: 5px;
-  min-width: 100%;
-}
-
-/* ??? */
-.nav > li li ul {
-  border-left: 1px solid #fff;
-}
-
-/* Position submenu level 2+ */
-.nav > li li:hover > ul {
-  left: 100%;
-  top: -1px;
-}
-
-/* Arrow hover styling */
-.nav > li > a:first-child:nth-last-child(2):before {
-  border-top-color: #aaa;
-}
-
-/* Top level menu arrow up */
-.nav > li:hover > a:first-child:nth-last-child(2):before {
-  border: 5px solid transparent;
-  border-bottom-color: lightblue;
-  margin-top: -5px;
-}
-
-/* Submenu link to submenu arrow right */
-.nav li li > a:first-child:nth-last-child(2):before {
-  border-left-color: #aaa;
-  margin-top: -5px;
-}
-
-/* Submenu link to submenu arrow left */
-.nav li li:hover > a:first-child:nth-last-child(2):before {
-  border: 5px solid transparent;
-  border-right-color: lightblue;
-  right: 10px;
-}
-
-/*
   CONTENT
  */
 div.content{
   margin-top: 10%;
   text-align: center;
   color: black;
+  font-size: 24pt;
+  h1{
+    font-size: 44pt;
+    font-weight: 200;
+  }
 }
 
 /*
@@ -303,13 +166,15 @@ input[type=checkbox]{display: none;}
 .container input[type=checkbox]:checked + label b.bottom{
   bottom: -140px;
 }
-.login h1{
+.login h4{
   padding: 10px 0px 5px 10px;
   border-bottom: 1px solid #ddd;
   box-shadow: 0px 1px #fff;
+  margin-top: -0.5px;
 }
 .login form{
-  margin-top: 10px;
+  margin-top: -10px;
+  font-size: 14pt;
 }
 .login form p{
   padding: 0px 0px;

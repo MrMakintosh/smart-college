@@ -5,6 +5,9 @@ table.profile{
   border: 0px;
   td{
     padding: 10px;
+    .container{
+      height: auto;
+    }
   }
 }
 .spoiler {
@@ -19,13 +22,13 @@ table.profile{
 }
 .spoiler > h2 {
   width: 100%;
-  font: italic normal 13px Tahoma,Calibri,Verdana,Geneva,sans-serif;
-  font-size: 11px;
+  font-size: 18pt;
   padding: 3px 17px;
   margin: 0 0 0 3px;
   line-height: 15px;
-  font-weight: bold;
+  font-weight: 100;
   cursor: pointer;
+  text-transform: uppercase;
 }
 .spoiler > div {
   padding: 1px 6px 2px;
