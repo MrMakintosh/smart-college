@@ -1,0 +1,10 @@
+<h1>This is show method for <%= @department.name %> department</h1>
+<h2>Списки для отделения <%= @department.name %></h2>
+<% @department.specialties.each do |s| %>
+      Специальность <%= s.name %> :
+      <ul>
+        <% s.groups.each do |g| %>
+          <li><%= g.number %></li>
+        <% end %>
+      </ul>
+<% end %>

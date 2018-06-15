@@ -1,4 +1,4 @@
-class DepartmentController < ApplicationController
+class DepartmentsController < ApplicationController
 
   def index
     @department = Department.all
@@ -8,22 +8,32 @@ class DepartmentController < ApplicationController
     @department = Department.new
   end
 
+  def show
+    @department = Department.find(params[:id])
+  end
+
   def edit
+    @department = Department.find(params[:id])
   end
 
   def create
     @department = Department.new(department_params)
     if @department.save
-      respond_to.html { redirect_to :action => :index, notice: "Отделение успешно добавлено" }
+      flash[:notice] = "Отделение успешно добавлено"
+      redirect_to person_root_path
     else
       respond_to.html { redirect_to :action => :new, notice: @department.erorrs }
     end
   end
 
+  def update
+
+  end
+
   private
 
   def department_params
-    params.require(:departments).permit(:name)
+    params.require(:department).permit(:name)
   end
 
 end

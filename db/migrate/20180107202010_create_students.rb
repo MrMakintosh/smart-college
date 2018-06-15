@@ -7,6 +7,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :fathername, default: "-"
       t.string :birthday, default: "-"
       t.string :adress, default: "-"
+      t.belongs_to :group
 
       t.timestamps null: false
     end

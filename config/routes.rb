@@ -17,17 +17,13 @@ Rails.application.routes.draw do
 
   get 'specialty/edit'
 
-  get 'department/index'
-
-  get 'department/new'
-
-  get 'department/edit'
-
-  get 'department/create'
+  get 'departments/index'
 
   root 'welcome_page#index'
 
   get 'users/profile', to: 'users#profile', as: 'person_root'
+
+  resources :departments
 
   resources :users
 

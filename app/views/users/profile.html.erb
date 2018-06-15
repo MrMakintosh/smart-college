@@ -1,13 +1,18 @@
-<h1>That is your profile menu!</h1>
+<h1>Добро пожаловать, <%= current_user.name %>!</h1>
 <center>
+  <a href="<%= departments_index_path %>" class="action-button shadow animate blue">Редактировать списки</a>
+  <a href="<%=  %>" class="action-button shadow animate blue">Редактировать пользователей</a>
+  <a href="#" class="action-button shadow animate red">How</a>
+  <a href="#" class="action-button shadow animate green">Are</a>
+  <a href="#" class="action-button shadow animate yellow">You?</a>
   <table class="profile">
     <tr>
       <td>
-        <h2>Списки студентов</h2>
+        <h2 id="nomarging">Списки студентов</h2>
         <div class="container">
           <% @department.each do |d| %>
             <div class="spoiler">
-              <h2><%= d.name %></h2>
+              <h2><%= link_to d.name, department_path(d) %></h2>
               <% if d.specialties %>
                 <div class="hidden">
                   <% d.specialties.each do |s| %>

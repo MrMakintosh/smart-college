@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111200130) do
+ActiveRecord::Schema.define(version: 20180122075014) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "name",       default: "Need to rename that :("
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20180111200130) do
     t.integer  "specialty_id"
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+  end
+
+  create_table "passes", force: :cascade do |t|
+    t.date     "date_of_pass",                           null: false
+    t.string   "lesson",       default: "Не указано :("
+    t.integer  "hours",        default: 2,               null: false
+    t.string   "cause",        default: "Не указано :("
+    t.integer  "student_id"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "specialties", force: :cascade do |t|
@@ -39,6 +49,7 @@ ActiveRecord::Schema.define(version: 20180111200130) do
     t.string   "fathername", default: "-"
     t.string   "birthday",   default: "-"
     t.string   "adress",     default: "-"
+    t.integer  "group_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

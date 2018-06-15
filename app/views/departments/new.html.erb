@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="form-container front">
+    <h1 class="form-label">Добавление отделения</h1>
+    <%= form_for @department do |f| %>
+      <div class="group">
+        <%= f.text_field :name %>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Название отделения</label>
+      </div>
+      <%= f.submit "Добавить отделение", class:"button raised btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+</div>
+<a href="<%= specialty_new_path %>" class="action-button shadow animate blue">Добавить Специальность</a>
+<a href="<%= group_new_path %>" class="action-button shadow animate blue">Добавить Группу</a>
+<a href="<%= student_new_path %>" class="action-button shadow animate blue">Добавить Учащихся</a>

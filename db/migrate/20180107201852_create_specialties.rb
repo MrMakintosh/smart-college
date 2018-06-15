@@ -3,7 +3,7 @@ class CreateSpecialties < ActiveRecord::Migration
     create_table :specialties do |t|
 
       t.string :name, default: "Need to rename that :("
-      t.belongs_to :department
+      t.belongs_to :departments
 
       t.timestamps null: false
     end
