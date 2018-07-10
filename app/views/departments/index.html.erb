@@ -17,6 +17,9 @@
 </table>
 <div id="departments">
   <h1 align="center">Отделения</h1>
+  <center>
+    <a href="<%= new_department_path %>" class="action-button shadow animate green">Добавить</a>
+  </center>
   <table border="0" align="center">
     <% @department.each do |department| %>
         <tr>
@@ -26,8 +29,8 @@
             </div>
           </td>
           <td>
-            <a href="#" class="action-button shadow animate yellow">Редактировать</a>
-            <a href="#" class="action-button shadow animate red">Удалить</a>
+            <a href="<%= edit_department_path(department) %>" class="action-button shadow animate yellow">Редактировать</a>
+            <a data-confirm="Вы уверены?" rel="nofollow" data-method="delete" href="<%= departments_path(department) %>" class="action-button shadow animate red">Удалить</a>
           </td>
         </tr>
     <% end %>
@@ -36,9 +39,16 @@
 <!-- Specialties -->
 <div id="specialties">
   <h1 align="center">Специальности</h1>
+  <center>
+    <a href="<%= specialty_new_path %>" class="action-button shadow animate green">Добавить</a>
+  </center>
   <table border="0" align="center">
     <% @department.each do |department| %>
-        <h2 align="center"><%= department.name %></h2>
+        <tr>
+          <td>
+            <h2 align="center"><%= department.name %></h2>
+          </td>
+        </tr>
         <% department.specialties.each do |specialty| %>
           <tr>
             <td>
@@ -47,8 +57,8 @@
               </div>
             </td>
             <td>
-              <a href="#" class="action-button shadow animate yellow">Редактировать</a>
-              <a href="#" class="action-button shadow animate red">Удалить</a>
+              <a href="<%= edit_specialty_path(specialty) %>" class="action-button shadow animate yellow">Редактировать</a>
+              <a data-confirm="Are u sure" rel="nofollow" data-method="delete" href="<%= specialty_path(specialty) %>" class="action-button shadow animate red">Удалить</a>
             </td>
           </tr>
         <% end %>
@@ -58,6 +68,9 @@
 <!-- Groups -->
 <div id="groups">
   <h1 align="center">Группы</h1>
+  <center>
+    <a href="<%= group_new_path %>" class="action-button shadow animate green">Добавить</a>
+  </center>
   <table border="0" align="center">
     <% @department.each do |department| %>
         <% department.specialties.each do |specialty| %>
@@ -69,8 +82,8 @@
                   </div>
                 </td>
                 <td>
-                  <a href="#" class="action-button shadow animate yellow">Редактировать</a>
-                  <a href="#" class="action-button shadow animate red">Удалить</a>
+                  <a href="<%= edit_group_path(group) %>" class="action-button shadow animate yellow">Редактировать</a>
+                  <a data-confirm="Are u sure" rel="nofollow" data-method="delete" href="<%= group_path(group) %>" class="action-button shadow animate red">Удалить</a>
                 </td>
               </tr>
             <% end %>
@@ -81,6 +94,9 @@
 <!-- Students -->
 <div id="students">
   <h1 align="center">Студенты</h1>
+  <center>
+    <a href="<%= student_new_path %>" class="action-button shadow animate green">Добавить</a>
+  </center>
   <table border="0" align="center">
     <% @department.each do |department| %>
         <% department.specialties.each do |specialty| %>
@@ -89,12 +105,12 @@
                   <tr>
                     <td>
                       <div style="background-color: lavender">
-                        <h2><%= link_to "#{student.name} #{student.surname} #{student.fathername}", student_index_path %></h2>
+                        <h2><%= link_to "#{student.name} #{student.surname} #{student.fathername}", student_path(student) %></h2>
                       </div>
                     </td>
                     <td>
-                      <a href="#" class="action-button shadow animate yellow">Редактировать</a>
-                      <a href="#" class="action-button shadow animate red">Удалить</a>
+                      <a href="<%= edit_student_path(student) %>" class="action-button shadow animate yellow">Редактировать</a>
+                      <a data-confirm="Are u sure?" rel="nofollow" data-method="delete" href="<%= student_path(student) %>" class="action-button shadow animate red">Удалить</a>
                     </td>
                   </tr>
                 <% end %>

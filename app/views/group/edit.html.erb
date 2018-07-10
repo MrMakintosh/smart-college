@@ -1,2 +1,24 @@
-<h1>Group#edit</h1>
-<p>Find me in app/views/group/edit.html.erb</p>
+<div class="container">
+  <div class="form-container front">
+    <h1 class="form-label">Редактирование группы</h1>
+    <%= form_for @group do |f| %>
+        <div class="group">
+          <%= f.text_field :number %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Название специальности</label>
+          <select name="specialty">
+            <% @department.each do |department| %>
+                <% department.specialties.each do |s| %>
+                    <option value="<%= s.id %>"><%= s.name %>(<%= department.name %>)</option>
+                <% end %>
+            <% end %>
+          </select>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Номер группы</label>
+        </div>
+        <%= f.submit "Изменить группу", class:"button raised btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+</div>

@@ -15,15 +15,20 @@ Rails.application.routes.draw do
 
   get 'specialty/new'
 
-  get 'specialty/edit'
-
   get 'departments/index'
+
+  post 'specialties', to: 'specialty#create'
+  post 'groups', to: 'group#create'
+  post 'students', to: 'student#create'
 
   root 'welcome_page#index'
 
   get 'users/profile', to: 'users#profile', as: 'person_root'
 
   resources :departments
+  resources :specialty
+  resources :group
+  resources :student
 
   resources :users
 

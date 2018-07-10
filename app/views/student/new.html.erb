@@ -1,2 +1,32 @@
-<h1>Student#new</h1>
-<p>Find me in app/views/student/new.html.erb</p>
+<div class="container">
+  <div class="form-container front">
+    <h1 class="form-label">Добавление студентов</h1>
+    <%= form_for @student do |f| %>
+        <div class="group">
+          <p>Номер группы</p>
+          <select name="group">
+            <% @department.each do |department| %>
+                <% department.specialties.each do |specialty| %>
+                    <% specialty.groups.each do |g| %>
+                      <option value="<%= g.id %>"><%= g.number %>(<%= department.name %>)</option>
+                    <% end %>
+                <% end %>
+            <% end %>
+          </select>
+          <p>Имя</p>
+          <%= f.text_field :name %>
+          <p>Фамилия</p>
+          <%= f.text_field :surname %>
+          <p>Отчество</p>
+          <%= f.text_field :fathername %>
+          <p>Дата рождения</p>
+          <%= f.text_field :birthday %>
+          <p>Адрес</p>
+          <%= f.text_field :adress %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+        </div>
+        <%= f.submit "Добавить студента", class:"button raised btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+</div>

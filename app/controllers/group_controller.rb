@@ -4,24 +4,46 @@ class GroupController < ApplicationController
 
   def new
     @group = Group.new
+    @department = Department.all
   end
 
   def edit
+    @department = Department.all
+    @group = Group.find(params[:id])
   end
 
   def create
-    @specialty = params[:specialty]
+    @specialty = Specialty.find(params[:id])
     @group = @specialty.groups.new(group_params)
     if @group.save
-      respond_to.html { redirect_to :action => :index, notice: "Отделение успешно добавлено" }
+      redirect_to "/departments/index", notice: "Отделение успешно добавлено"
     else
       respond_to.html { redirect_to :action => :new, notice: @department.erorrs}
+    end
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    @old = @group.number
+    if @group.update group_params
+      @group.update_attributes :specialty_id => params[:specialty]
+      redirect_to "/departments/index", notice: "Группа #{@old} успешно изменена на #{@group.number}"
+    end
+  end
+
+  def destroy
+    @group = Group.find(params[:id])
+    if @group
+      @group.destroy
+      redirect_to "/departments/index"
+    else
+      redirect_to "/departments/index", notice: @specialty.errors
     end
   end
 
   private
 
   def group_params
-    params.require(:groups).permit(:number)
+    params.require(:group).permit(:number)
   end
 end

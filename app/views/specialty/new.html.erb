@@ -1,2 +1,22 @@
-<h1>Specialty#new</h1>
-<p>Find me in app/views/specialty/new.html.erb</p>
+<div class="container">
+  <div class="form-container front">
+    <h1 class="form-label">Добавление специальности</h1>
+    <%= form_for @specialty do |f| %>
+        <div class="group">
+          <%= f.text_field :name %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Название специальности</label>
+          <select name="id">
+            <% @department.each do |d| %>
+              <option value="<%= d.id %>"><%= d.name %></option>
+            <% end %>
+          </select>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Название специальности</label>
+        </div>
+        <%= f.submit "Добавить специальность", class:"button raised btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<center>
+  <table>
+    <tr>
+      <td>ФИО</td>
+      <td><%= @student.name %> <%= @student.surname %> <%= @student.fathername %></td>
+    </tr>
+    <tr>
+      <td>Группа</td>
+      <td><%= @student.group.number %></td>
+    </tr>
+    <tr>
+      <td>Специальность</td>
+      <td><%= @student.group.specialty.name %></td>
+    </tr>
+    <tr>
+      <td>Отделение</td>
+      <td><%= @student.group.specialty.department.name %></td>
+    </tr>
+    <tr>
+      <td>Адрес</td>
+      <td><%= @student.adress %></td>
+    </tr>
+    <tr>
+      <td>Дата рождения</td>
+      <td><%= @student.birthday %></td>
+    </tr>
+  </table>
+</center>
