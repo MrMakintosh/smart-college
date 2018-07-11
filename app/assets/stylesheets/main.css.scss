@@ -5,9 +5,9 @@ body{
  /*
     Maybe need some default styles here...
   */
-  font-family: 'house-script', 'sans-serif';
+  /*font-family: 'house-script', 'sans-serif';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400;*/
 }
 /*
   HEADER
@@ -23,7 +23,7 @@ header{
   text-shadow: 0px -2px #2980B9;
   //opacity: 0.8;
   width: 100%;
-  height: 18%;
+  height: 12%;
   position: fixed;
   top: 0;
   left: 0;
@@ -40,13 +40,13 @@ header{
 div.app-name{
   width: 40%;
   letter-spacing: 2.5px;
-  font-size: 24pt;
+  font-size: 18pt;
   margin-top: 3%;
   margin-right: 5%;
 }
 img.logo, span.logo{
-  height: 100px;
-  width: 100px;
+  height: 75px;
+  width: 75px;
   margin: 0.5%;
   margin-left: 5%;
   margin-right: 23%;
@@ -86,9 +86,9 @@ div.content{
   margin-top: 13%;
   text-align: center;
   color: black;
-  font-size: 24pt;
+  font-size: 12pt;
   h1{
-    font-size: 44pt;
+    font-size: 25pt;
     font-weight: 200;
   }
 }

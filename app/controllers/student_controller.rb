@@ -41,6 +41,12 @@ class StudentController < ApplicationController
     redirect_to "/departments/index", notice: "Студент удален"
   end
 
+  def api_request
+    @group = Group.find(params[:id])
+    @students = @group.students.all
+    render :json => @students
+  end
+
   private
 
   def student_params

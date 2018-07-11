@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get 'departments/index'
 
+  get '/api_request/:id', to: 'student#api_request'
+
   post 'specialties', to: 'specialty#create'
   post 'groups', to: 'group#create'
   post 'students', to: 'student#create'

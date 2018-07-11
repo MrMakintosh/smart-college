@@ -1,44 +1,79 @@
+<% require 'json' %>
+<style>
+  table.students, td{
+    border: 1px solid black;
+  }
+  td{
+    padding: 15px;
+  }
+</style>
+<% passes = Array.new %>
+<% @department.each do |department| %>
+    <% department.specialties.each do |specialty| %>
+        <% specialty.groups.each do |group| %>
+           <% group.students.each do |student| %>
+              <% hours = 0 %>
+              <% student.passes.each do |pass| %>
+                <% hours = hours + pass.hours %>
+              <% end %>
+              <% passes[student.id] = hours %>
+           <% end %>
+        <% end %>
+    <% end %>
+<% end %>
+<% passes = passes.map {|e| e ? e : 0} %>
 <h1>Добро пожаловать, <%= current_user.name %>!</h1>
 <center>
   <a href="<%= departments_index_path %>" class="action-button shadow animate blue">Редактировать списки</a>
   <a href="<%=  %>" class="action-button shadow animate blue">Редактировать пользователей</a>
-  <table class="profile">
-    <tr>
-      <td>
-        <h2 id="nomarging">Списки студентов</h2>
-        <div class="container">
-          <% @department.each do |d| %>
-            <div class="spoiler">
-              <h2><%= link_to d.name, department_path(d) %></h2>
-              <% if d.specialties %>
-                <div class="hidden">
-                  <% d.specialties.each do |s| %>
-                    <div class="spoiler">
-                      <h2><%= s.name %></h2>
-                      <% if s.groups %>
-                        <div class="hidden">
-                          <% s.groups.each do |g| %>
-                            <div class="spoiler">
-                              <h2><%= link_to "#{g.number}", group_index_path %></h2>
-                            </div>
-                          <% end %>
-                        </div>
-                      <% end %>
-                    </div>
-                  <% end %>
-                </div>
+  <h2 id="nomarging">Списки студентов</h2>
+  <p>Выберите группу</p>
+      <select id="group">
+          <% @department.each do |department| %>
+            <% department.specialties.each do |specialty| %>
+              <% specialty.groups.each do |group| %>
+                <option value="<%= group.id %>"><%= group.number %></option>
               <% end %>
-            </div>
+            <% end %>
           <% end %>
-        </div>
-      </td>
-      <td>
-        <h2>Например, график пропусков</h2>
-        <div class="container">
-          something else
-        </div>
-      </td>
-    </tr>
-  </table>
+      </select>
+  <div id="result">
+
+  </div>
 </center>
 <%= link_to 'Выйти', sign_out_path, method: :delete %>
+<script>
+  $(document).ready(function(){
+      var output="<table class='students'><tr><td>ФИО</td><td>Адрес</td><td>Пропуск часов</td>";
+      $.ajax({
+          type: 'GET',
+          url: "/api_request/<%= Group.first.id %>",
+          dataType: 'json',
+          success: function (data) {
+              for(i in data){
+                  output+="<tr><td>" + data[i].name + " " + data[i].surname + " " + data[i].fathername + "</td>";
+                  output+="<td>" + data[i].adress + "</td><td>"+passes[data[i].id]+"</td></tr>";
+              }
+              output += "</table>";
+              $("#result").html(output);
+          }
+      })
+  });
+  var passes = <%= passes %>;
+  $("#group").change(function () {
+      var output="<table class='students'><tr><td>ФИО</td><td>Адрес</td><td>Пропуск часов</td>";
+      $.ajax({
+          type: 'GET',
+          url: "/api_request/"+$("#group").val(),
+          dataType: 'json',
+          success: function (data) {
+            for(i in data){
+                output+="<tr><td>" + data[i].name + " " + data[i].surname + " " + data[i].fathername + "</td>";
+                output+="<td>" + data[i].adress + "</td><td>" + passes[data[i].id] + "<form method='post' action='/add_pass/"+ data[i].id +"/'><input type='number' name='hours'>Часов<input type='submit' value='Добавить'></form></td></tr>";
+            }
+            output += "</table>";
+            $("#result").html(output);
+          }
+      })
+  })
+</script>
