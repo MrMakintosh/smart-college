@@ -1,0 +1,457 @@
+/* line 4, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.form-container {
+  background: #288CF0;
+  background: #FFF;
+  border: 2px solid #288CF0;
+  padding: 40px;
+  margin-bottom: 40px;
+  margin: 2rem auto;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  text-align: center;
+  position: relative;
+  height: auto;
+  width: 50%;
+}
+
+/* line 18, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.form-label {
+  position: absolute;
+  top: 0;
+  left: 3rem;
+  background: #FFF;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  transform: translateY(-50%);
+  color: #288CF0;
+}
+/* line 28, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.form-label:before, .form-label:after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  left: 0;
+  z-index: -1;
+}
+/* line 38, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.form-label:before {
+  background: #ecf0f1;
+  top: 0;
+}
+/* line 43, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.form-label:after {
+  background: #FFF;
+  bottom: 0;
+}
+
+/* container sorrounding message */
+/* line 52, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.message-form-control {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 1rem;
+  box-shadow: 0 0 0 1px #288CF0;
+  transition: all 0.5s ease;
+}
+
+/* line 62, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.message-form-control:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px #288CF0;
+}
+
+/* line 67, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.message-form-control::-webkit-input-placeholder {
+  color: #288CF0;
+  font-size: 18px;
+  line-height: 100px;
+  transition: all 0.5s ease;
+  margin: 0 auto;
+}
+
+/* line 75, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.message-form-control:focus::-webkit-input-placeholder {
+  color: #AAA;
+  font-size: 12px;
+  line-height: 12px;
+  padding-left: 0%;
+}
+
+/* Button styling */
+/* line 85, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.button {
+  background: #FFF;
+  border-radius: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #288CF0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 40px;
+  border: 2px solid #288CF0;
+  text-align: center;
+}
+
+/* line 97, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.button:hover {
+  background: #288CF0;
+  color: #FFF;
+  border: 2px solid #288CF0;
+}
+
+/* line 103, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.button.raised {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0);
+}
+
+/* line 108, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.button.raised:hover {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+/* line 112, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.button.raised:active {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* form starting stylings*/
+/* line 119, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.group {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+/* line 124, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+input {
+  background: transparent;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #288CF0;
+}
+
+/* line 134, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+input:focus {
+  outline: none;
+}
+
+/* LABEL */
+/* line 141, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+label {
+  color: #288CF0;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+}
+
+/* active state */
+/* line 155, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+input:focus ~ label,
+input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #288CF0;
+}
+
+/* BOTTOM BARS */
+/* line 165, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.bar {
+  position: relative;
+  display: block;
+  width: 50%;
+}
+
+/* line 171, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.bar:before,
+.bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #288CF0;
+  transition: 0.2s ease all;
+}
+
+/* line 182, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.bar:before {
+  left: 100%;
+}
+
+/* line 186, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.bar:after {
+  right: 0%;
+}
+
+/* active state */
+/* line 193, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+  width: 100%;
+}
+
+/* HIGHLIGHTER */
+/* line 201, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+/* line 214, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/departments.scss */
+input:focus ~ .highlight {
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS */
+@keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@charset "UTF-8";
+/*
+  BODY
+ */
+/* line 5, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/main.css.scss */
+body {
+  /*
+     Maybe need some default styles here...
+   */
+  /*font-family: 'house-script', 'sans-serif';
+  font-style: normal;
+  font-weight: 400;*/
+}
+
+/*
+  HEADER
+ */
+/* line 16, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/main.css.scss */
+header {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  line-height: 1;
+  background-color: #3498DB;
+  border-bottom: 5px solid #2980B9;
+  text-shadow: 0px -2px #2980B9;
+  width: 100%;
+  height: 12%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+}
+
+/*
+  FONT
+ */
+@font-face {
+  font-family: house-script;
+  /* имя шрифта для CSS правил */
+  src: local("SignPainter"), url("/assets/SignPainter-f7355657691043328d00a3b654c8103911b712eb22b2cebaeba5e0482f920099.otf");
+}
+/* line 41, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/main.css.scss */
+div.app-name {
+  width: 40%;
+  letter-spacing: 2.5px;
+  font-size: 18pt;
+  margin-top: 3%;
+  margin-right: 5%;
+}
+
+/* line 48, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/main.css.scss */
+img.logo, span.logo {
+  height: 75px;
+  width: 75px;
+  margin: 0.5%;
+  margin-left: 5%;
+  margin-right: 23%;
+}
+
+/* line 55, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/main.css.scss */
+div.search {
+  margin-top: 3%;
+  margin-left: -150px;
+  height: 30%;
+  width: 26%;
+}
+/* line 60, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/main.css.scss */
+div.search input {
+  height: 60%;
+  width: 60%;
+  border: 1px solid white;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  float: left;
+}
+/* line 68, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/main.css.scss */
+div.search button {
+  height: 70%;
+  width: 15%;
+  border: 1px solid white;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: white;
+  font-weight: bold;
+  border-left-color: #2b5797;
+}
+
+/* line 79, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/main.css.scss */
+span.logo, div.app-name, div.search {
+  float: left;
+}
+
+/*
+  CONTENT
+ */
+/* line 86, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/main.css.scss */
+div.content {
+  margin-top: 13%;
+  text-align: center;
+  color: black;
+  font-size: 12pt;
+}
+/* line 91, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/main.css.scss */
+div.content h1 {
+  font-size: 25pt;
+  font-weight: 200;
+}
+/* line 4, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+table.profile {
+  border: 0px;
+}
+/* line 6, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+table.profile #nomarging {
+  margin-bottom: -20px;
+}
+/* line 9, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+table.profile td {
+  padding: 10px;
+}
+/* line 11, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+table.profile td .container {
+  height: auto;
+}
+
+/* line 16, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+.spoiler {
+  margin: 20px 30px 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: #fbf9f8 none;
+  border-radius: 5px;
+  border: 1px solid #535e6e;
+  position: relative;
+  top: 0;
+}
+
+/* line 26, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+.spoiler > h2 {
+  width: 100%;
+  font-size: 18pt;
+  padding: 3px 17px;
+  margin: 0 0 0 0px;
+  line-height: 15px;
+  font-weight: 100;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* line 36, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+.spoiler > div {
+  padding: 1px 6px 2px;
+  border-top: 1px solid #C3CBD1;
+  transition: all .2 ease-out;
+}
+
+/* line 41, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+.spoiler > div.hidden {
+  display: none;
+}
+
+/* line 45, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+.animate {
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+}
+
+/* line 51, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+.action-button {
+  padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  border-radius: 10px;
+  font-size: 16pt;
+  color: #FFF;
+  text-decoration: none;
+}
+
+/* line 61, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+.blue {
+  background-color: #3498DB;
+  border-bottom: 5px solid #2980B9;
+  text-shadow: 0px -2px #2980B9;
+}
+
+/* line 68, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+.red {
+  background-color: #E74C3C;
+  border-bottom: 5px solid #BD3E31;
+  text-shadow: 0px -2px #BD3E31;
+}
+
+/* line 75, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+.green {
+  background-color: #82BF56;
+  border-bottom: 5px solid #669644;
+  text-shadow: 0px -2px #669644;
+}
+
+/* line 82, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+.yellow {
+  background-color: orange;
+  border-bottom: 5px solid darkorange;
+  text-shadow: 0px -2px #D1B358;
+}
+
+/* line 89, /home/makintosh/Desktop/Programming/smart-pass/app/assets/stylesheets/users.scss */
+.action-button:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  border-bottom: 1px solid;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+@import 'bootstrap';

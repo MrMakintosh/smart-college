@@ -38,7 +38,7 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
+  gem 'pg', '~> 0.18'
 end
 
 group :development, :test do

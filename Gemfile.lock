@@ -138,7 +138,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    pg (1.0.0)
+    pg (0.21.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -278,7 +278,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   libnotify
-  pg
+  pg (~> 0.18)
   rails (= 4.2.6)
   rails_12factor
   rspec-rails
