@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'pg', '~> 0.18'
 gem 'rails', '4.2.6'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'bcrypt-ruby'
@@ -10,7 +11,6 @@ gem 'spreadsheet'
 gem 'authlogic', '3.4.6'
 
 group :development do
-  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'childprocess'
@@ -36,7 +36,6 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg', '~> 0.18'
 end
 
 group :development, :test do
