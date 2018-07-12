@@ -1,0 +1,18 @@
+<h1>Registration for users</h1>
+<%= form_for @user do |f| %>
+  <p>Login</p>
+  <%= f.text_field :login %>
+  <p>Password</p>
+  <%= f.password_field :password %>
+  <p>Password confirmation</p>
+  <%= f.password_field :password_confirmation %>
+    <p>Name</p>
+    <%= f.text_field :name %>
+    <p>Surname</p>
+    <%= f.text_field :surname %>
+    <p>Position</p>
+    <%= f.text_field :position %>
+  <p>Administration</p>
+  <%= f.check_box :admin %> Admin <br>
+  <%= f.submit "Register" %>
+<% end %>

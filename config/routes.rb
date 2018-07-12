@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get '/api_request/:id', to: 'student#api_request'
 
+  get '/add_pass/:student/:hours/:cause', to: 'passes#add_pass'
+
   post 'specialties', to: 'specialty#create'
   post 'groups', to: 'group#create'
   post 'students', to: 'student#create'

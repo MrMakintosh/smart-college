@@ -24,8 +24,12 @@
 <% passes = passes.map {|e| e ? e : 0} %>
 <h1>Добро пожаловать, <%= current_user.name %>!</h1>
 <center>
-  <a href="<%= departments_index_path %>" class="action-button shadow animate blue">Редактировать списки</a>
-  <a href="<%=  %>" class="action-button shadow animate blue">Редактировать пользователей</a>
+  <% if current_user.admin == 1 %>
+    <a href="<%= departments_index_path %>" class="action-button shadow animate blue">Редактировать списки</a>
+  <% end %>
+  <% if current_user.superadmin == 1 %>
+    <a href="<%= users_path %>" class="action-button shadow animate blue">Редактировать пользователей</a>
+  <% end %>
   <h2 id="nomarging">Списки студентов</h2>
   <p>Выберите группу</p>
       <select id="group">
@@ -43,6 +47,7 @@
 </center>
 <%= link_to 'Выйти', sign_out_path, method: :delete %>
 <script>
+  var passes = <%= passes %>;
   $(document).ready(function(){
       var output="<table class='students'><tr><td>ФИО</td><td>Адрес</td><td>Пропуск часов</td>";
       $.ajax({
@@ -52,14 +57,13 @@
           success: function (data) {
               for(i in data){
                   output+="<tr><td>" + data[i].name + " " + data[i].surname + " " + data[i].fathername + "</td>";
-                  output+="<td>" + data[i].adress + "</td><td>"+passes[data[i].id]+"</td></tr>";
+                  output+="<td>" + data[i].adress + "</td><td>" + passes[data[i].id] + "<form method='post' action='/add_pass/"+ data[i].id +"/'><input type='hidden' id='student' value='"+data[i].id+"'><input type='number' id='hours' name='hours'>Часов<input type='checkbox' id='cause' value='1'>Уважительная причина<input type='button' id='pass_button' value='Добавить'></form></td></tr>";
               }
               output += "</table>";
               $("#result").html(output);
           }
       })
   });
-  var passes = <%= passes %>;
   $("#group").change(function () {
       var output="<table class='students'><tr><td>ФИО</td><td>Адрес</td><td>Пропуск часов</td>";
       $.ajax({
@@ -69,10 +73,20 @@
           success: function (data) {
             for(i in data){
                 output+="<tr><td>" + data[i].name + " " + data[i].surname + " " + data[i].fathername + "</td>";
-                output+="<td>" + data[i].adress + "</td><td>" + passes[data[i].id] + "<form method='post' action='/add_pass/"+ data[i].id +"/'><input type='number' name='hours'>Часов<input type='submit' value='Добавить'></form></td></tr>";
+                output+="<td>" + data[i].adress + "</td><td>" + passes[data[i].id] + "<form method='post' action='/add_pass/"+ data[i].id +"/'><input type='hidden' id='student' value='"+data[i].id+"'><input type='number' id='hours' name='hours'>Часов<input type='checkbox' id='cause' value='1'>Уважительная причина<input type='button' id='pass_button' value='Добавить'></form></td></tr>";
             }
             output += "</table>";
             $("#result").html(output);
+          }
+      })
+  })
+  $("body").on("click", "#pass_button", function () {
+      $.ajax({
+          type: 'GET',
+          url: "/add_pass/"+$("#student").val()+"/"+$("#hours").val()+"/"+$("#cause").val(),
+          dataType: 'json',
+          success: function (data) {
+              alert("Пропуск зарегистрирован!");
           }
       })
   })

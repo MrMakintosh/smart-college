@@ -1,0 +1,22 @@
+<h1>Меню редактирования пользователей</h1>
+<div id="users">
+  <h1 align="center">Пользователи</h1>
+  <center>
+    <a href="<%= new_user_path %>" class="action-button shadow animate green">Добавить</a>
+  </center>
+  <table border="0" align="center">
+        <% @users.each do |user| %>
+            <tr>
+              <td>
+                <div style="background-color: lavender">
+                  <h2><%= link_to "#{user.name} #{user.surname}", users_path(user) %></h2>
+                </div>
+              </td>
+              <td>
+                <a href="<%= edit_user_path(user) %>" class="action-button shadow animate yellow">Редактировать</a>
+                <a data-confirm="Are u sure?" rel="nofollow" data-method="delete" href="<%=  %>" class="action-button shadow animate red">Удалить</a>
+              </td>
+            </tr>
+        <% end %>
+  </table>
+</div>

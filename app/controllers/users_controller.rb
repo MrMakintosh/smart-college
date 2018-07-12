@@ -8,12 +8,23 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
+  def edit
+    @user = User.find(params[:id])
+  end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update users_params
+      redirect_to users_path
+    end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def index
-
+    @users = User.all
   end
 
   def create
@@ -29,7 +40,7 @@ class UsersController < ApplicationController
   private
 
   def users_params
-    params.require(:user).permit(:login, :password, :password_confirmation)
+    params.require(:user).permit(:login, :password, :password_confirmation, :admin, :name, :surname, :position)
   end
 
 end
