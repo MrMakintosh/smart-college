@@ -1,0 +1,36 @@
+<style>
+  td{
+    height: 60px;
+    text-align: center;
+  }
+</style>
+<center>
+  <a href="javascript:history.back()" id="back" class="action-button shadow animate blue">Назад</a>
+</center>
+<h2>Группы специальности "<%= @specialty.name %>"</h2>
+<center>
+  <a href="<%= group_new_path %>" class="action-button shadow animate green">Добавить</a>
+  <table border="1">
+    <tr>
+      <th>№</th>
+      <th>Номер группы</th>
+      <th>Опции</th>
+    </tr>
+    <% i = 1 %>
+      <% @specialty.groups.each do |group| %>
+        <tr>
+          <td>
+            <%= i %>
+          </td>
+          <td>
+            <%= link_to group.number, group_path(group) %>
+          </td>
+          <td>
+            <a href="<%= edit_group_path(group) %>" style="font-size: 12pt; padding: 10px" class="action-button shadow animate yellow">Редактировать</a>
+            <a data-confirm="Вы уверены, что хотите удалить группу '<%= group.number %>'???" rel="nofollow" data-method="delete" style="font-size: 12pt; padding: 10px" href="<%= group_path(group) %>" class="action-button shadow animate red">Удалить</a>
+          </td>
+        </tr>
+        <% i = i + 1 %>
+      <% end %>
+  </table>
+</center>

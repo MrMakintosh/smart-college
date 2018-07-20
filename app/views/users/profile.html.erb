@@ -1,27 +1,84 @@
+<script>
+    function output_for_table (data, i, k) {
+        var passes_affirmative = data.passes_affirmative;
+        var passes_negative = data.passes_negative;
+        var output = "";
+        if(k == 1){
+            output += "<tr><td>" + i + "</td><td><a href='/student/" + data.students[5] + "'>" + data.students[1] + " " + data.students[0] + " " + data.students[2] + "</a></td>";
+            output += "<td>" + data.students[4] +"</td><td>" + data.students[3] + "</td><td>" + passes_affirmative[data.students[5]] + " часов</td><td>" + passes_negative[data.students[5]] + " часов</td><td style='border-bottom:0px; border-right:0px'><form method='post' name='form"+i+"' action='javascript:passButtonClick(this.form"+i+")'><table><tr><td><input type='hidden' name='student' value='"+data.students[5]+"'><input type='number' name='hours' class='profile-input' style='height:10px; width:30px' name='hours'></td><td style='border-bottom:0px; border-left:0px'>Часов</td></tr><tr><td style='border-top:0px; border-bottom:0px; border-right:0px'><input type='hidden' name='cause' id='cause"+i+"' value='0'><input type='checkbox' id='cause-check"+i+"' name='cause_check[]' onchange='javascript:causeCheck("+i+")'></td><td style='border-top:0px; border-left:0px; border-bottom:0px'>Уважительная причина</td></tr><tr><td style='border-top:0px;' colspan ='2'><input type='submit' class='profile-input' style='height:50px; width:250px' id='pass_button' value='Добавить'></form></td></tr></table>";
+        }
+        else{
+            output += "<tr><td>" + i + "</td><td><a href='/student/" + data.students[5] + "'>" + data.students[1] + " " + data.students[0] + " " + data.students[2] + "</a></td>";
+            output += "<td>" + data.students[3] + "</td><td>" + passes_affirmative[data.students[5]] + " часов</td><td>" + passes_negative[data.students[5]] + " часов</td><td style='border-bottom:0px; border-right:0px'><form method='post' name='form"+i+"' action='javascript:passButtonClick(this.form"+i+")'><table><tr><td><input type='hidden' name='student' value='"+data.students[5]+"'><input type='number' name='hours' class='profile-input' style='height:10px; width:30px' name='hours'></td><td style='border-bottom:0px; border-left:0px'>Часов</td></tr><tr><td style='border-top:0px; border-bottom:0px; border-right:0px'><input type='hidden' name='cause' id='cause"+i+"' value='0'><input type='checkbox' id='cause-check"+i+"' name='cause_check[]' onchange='javascript:causeCheck("+i+")'></td><td style='border-top:0px; border-left:0px; border-bottom:0px'>Уважительная причина</td></tr><tr><td style='border-top:0px;' colspan ='2'><input type='submit' class='profile-input' style='height:50px; width:250px' id='pass_button' value='Добавить'></form></td></tr></table>";
+        }
+        return output;
+    }
+</script>
 <% require 'json' %>
 <style>
-  table.students, td{
-    border: 1px solid black;
+  th{
+    background-color: #2980B9;
+    color: white;
   }
   td{
     padding: 15px;
+    text-align: center;
+  }
+  .profile-input{
+    border: 2px solid lightblue;
+  }
+  .search-box,.close-icon,.search-wrapper {
+    position: relative;
+    padding: 10px;
+  }
+  .search-wrapper {
+    width: 500px;
+    margin: auto;
+    margin-top: 0px;
+  }
+  .search-box {
+    width: 80%;
+    border: 1px solid #ccc;
+    outline: 0;
+    border-radius: 15px;
+  }
+  .search-box:focus {
+    box-shadow: 0 0 15px 5px #b0e0ee;
+    border: 2px solid #bebede;
+  }
+  .close-icon {
+    border:1px solid transparent;
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    outline: 0;
+    cursor: pointer;
+  }
+  .close-icon:after {
+    content: "X";
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-color: #FA9595;
+    z-index:1;
+    left: 185px;
+    top: 0;
+    bottom: 65px;
+    margin: auto;
+    padding: 5px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: normal;
+    font-size: 12px;
+    box-shadow: 0 0 2px #E50F0F;
+    cursor: pointer;
+  }
+  .search-box:not(:valid) ~ .close-icon {
+    display: none;
   }
 </style>
-<% passes = Array.new %>
-<% @department.each do |department| %>
-    <% department.specialties.each do |specialty| %>
-        <% specialty.groups.each do |group| %>
-           <% group.students.each do |student| %>
-              <% hours = 0 %>
-              <% student.passes.each do |pass| %>
-                <% hours = hours + pass.hours %>
-              <% end %>
-              <% passes[student.id] = hours %>
-           <% end %>
-        <% end %>
-    <% end %>
-<% end %>
-<% passes = passes.map {|e| e ? e : 0} %>
 <h1>Добро пожаловать, <%= current_user.name %>!</h1>
 <center>
   <% if current_user.admin == 1 %>
@@ -41,53 +98,18 @@
             <% end %>
           <% end %>
       </select>
+  <h2 style="margin: 5px;">ИЛИ</h2>
+  <p style="margin: 0px;">Воспользуйтесь поиском</p>
+  <div class="search-wrapper">
+    <form>
+      <input type="text" name="focus" id="search" required class="search-box" placeholder="Введите фамилию учащегося" />
+      <button class="close-icon" type="reset"></button>
+    </form>
+  </div>
   <div id="result">
 
   </div>
 </center>
-<%= link_to 'Выйти', sign_out_path, method: :delete %>
 <script>
-  var passes = <%= passes %>;
-  $(document).ready(function(){
-      var output="<table class='students'><tr><td>ФИО</td><td>Адрес</td><td>Пропуск часов</td>";
-      $.ajax({
-          type: 'GET',
-          url: "/api_request/<%= Group.first.id %>",
-          dataType: 'json',
-          success: function (data) {
-              for(i in data){
-                  output+="<tr><td>" + data[i].name + " " + data[i].surname + " " + data[i].fathername + "</td>";
-                  output+="<td>" + data[i].adress + "</td><td>" + passes[data[i].id] + "<form method='post' action='/add_pass/"+ data[i].id +"/'><input type='hidden' id='student' value='"+data[i].id+"'><input type='number' id='hours' name='hours'>Часов<input type='checkbox' id='cause' value='1'>Уважительная причина<input type='button' id='pass_button' value='Добавить'></form></td></tr>";
-              }
-              output += "</table>";
-              $("#result").html(output);
-          }
-      })
-  });
-  $("#group").change(function () {
-      var output="<table class='students'><tr><td>ФИО</td><td>Адрес</td><td>Пропуск часов</td>";
-      $.ajax({
-          type: 'GET',
-          url: "/api_request/"+$("#group").val(),
-          dataType: 'json',
-          success: function (data) {
-            for(i in data){
-                output+="<tr><td>" + data[i].name + " " + data[i].surname + " " + data[i].fathername + "</td>";
-                output+="<td>" + data[i].adress + "</td><td>" + passes[data[i].id] + "<form method='post' action='/add_pass/"+ data[i].id +"/'><input type='hidden' id='student' value='"+data[i].id+"'><input type='number' id='hours' name='hours'>Часов<input type='checkbox' id='cause' value='1'>Уважительная причина<input type='button' id='pass_button' value='Добавить'></form></td></tr>";
-            }
-            output += "</table>";
-            $("#result").html(output);
-          }
-      })
-  })
-  $("body").on("click", "#pass_button", function () {
-      $.ajax({
-          type: 'GET',
-          url: "/add_pass/"+$("#student").val()+"/"+$("#hours").val()+"/"+$("#cause").val(),
-          dataType: 'json',
-          success: function (data) {
-              alert("Пропуск зарегистрирован!");
-          }
-      })
-  })
+
 </script>

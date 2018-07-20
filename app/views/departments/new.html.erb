@@ -3,10 +3,10 @@
     <h1 class="form-label">Добавление отделения</h1>
     <%= form_for @department do |f| %>
       <div class="group">
+        <p>Название отделения</p>
         <%= f.text_field :name %>
         <span class="highlight"></span>
         <span class="bar"></span>
-        <label>Название отделения</label>
       </div>
       <%= f.submit "Добавить отделение", class:"button raised btn btn-primary btn-lg" %>
     <% end %>

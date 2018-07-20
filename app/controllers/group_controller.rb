@@ -7,6 +7,10 @@ class GroupController < ApplicationController
     @department = Department.all
   end
 
+  def show
+    @group = Group.find(params[:id])
+  end
+
   def edit
     @department = Department.all
     @group = Group.find(params[:id])
@@ -16,7 +20,7 @@ class GroupController < ApplicationController
     @specialty = Specialty.find(params[:id])
     @group = @specialty.groups.new(group_params)
     if @group.save
-      redirect_to "/departments/index", notice: "Отделение успешно добавлено"
+      redirect_to specialty_path(@specialty), notice: "Отделение успешно добавлено"
     else
       respond_to.html { redirect_to :action => :new, notice: @department.erorrs}
     end
@@ -27,7 +31,7 @@ class GroupController < ApplicationController
     @old = @group.number
     if @group.update group_params
       @group.update_attributes :specialty_id => params[:specialty]
-      redirect_to "/departments/index", notice: "Группа #{@old} успешно изменена на #{@group.number}"
+      redirect_to specialty_path(@specialty), notice: "Группа #{@old} успешно изменена на #{@group.number}"
     end
   end
 

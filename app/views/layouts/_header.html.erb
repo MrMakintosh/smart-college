@@ -3,4 +3,7 @@
     <a href="<%= root_path %>"><img class="logo" src="<%= asset_path('Logo_200x200.ico')%>"/></a>
   </span>
   <div class="app-name">Электронный колледж</div>
+  <div class="logout">
+    <%= link_to 'Выйти', sign_out_path, method: :delete %>
+  </div>
 </header>

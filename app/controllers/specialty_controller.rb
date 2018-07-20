@@ -2,6 +2,10 @@ class SpecialtyController < ApplicationController
   def index
   end
 
+  def show
+    @specialty = Specialty.find(params[:id])
+  end
+
   def new
     @specialty = Specialty.new
     @department = Department.all

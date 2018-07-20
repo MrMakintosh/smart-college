@@ -9,6 +9,7 @@ gem 'bcrypt-ruby'
 gem 'will_paginate'
 gem 'spreadsheet'
 gem 'authlogic', '3.4.6'
+gem 'pg_search'
 
 group :development do
   gem 'rspec-rails'

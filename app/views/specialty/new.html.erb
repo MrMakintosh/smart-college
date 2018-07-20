@@ -3,10 +3,11 @@
     <h1 class="form-label">Добавление специальности</h1>
     <%= form_for @specialty do |f| %>
         <div class="group">
+          <p>Название специальности</p>
           <%= f.text_field :name %>
           <span class="highlight"></span>
           <span class="bar"></span>
-          <label>Название специальности</label>
+          <p>Название отделения</p>
           <select name="id">
             <% @department.each do |d| %>
               <option value="<%= d.id %>"><%= d.name %></option>
@@ -14,7 +15,6 @@
           </select>
           <span class="highlight"></span>
           <span class="bar"></span>
-          <label>Название специальности</label>
         </div>
         <%= f.submit "Добавить специальность", class:"button raised btn btn-primary btn-lg" %>
     <% end %>

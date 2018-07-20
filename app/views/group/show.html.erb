@@ -1,0 +1,63 @@
+<style>
+  td{
+    height: 60px;
+    text-align: center;
+  }
+</style>
+<% affirmative = 0 %>
+<% negative = 0 %>
+<% @group.students.each do |student| %>
+    <% student.passes.each do |pass| %>
+        <% if pass.cause == "1" %>
+            <% affirmative = affirmative + pass.hours %>
+        <% else %>
+            <% negative = negative + pass.hours %>
+        <% end %>
+    <% end %>
+<% end %>
+<center>
+  <a href="javascript:history.back()" id="back" class="action-button shadow animate blue">Назад</a>
+</center>
+<h2>Студенты группы "<%= @group.number %>"</h2>
+<center>
+  <a href="<%= student_new_path %>" class="action-button shadow animate green">Добавить</a>
+  <table border="1">
+    <tr>
+      <th>№</th>
+      <th>ФИО</th>
+      <th>Дата рождения</th>
+      <th>Адрес</th>
+      <th>Пропуски по уважительной причине</th>
+      <th>Пропуски по неуважительной причине</th>
+      <th>Опции</th>
+    </tr>
+    <% i = 1 %>
+    <% @group.students.each do |student| %>
+        <tr>
+          <td>
+            <%= i %>
+          </td>
+          <td>
+            <%= link_to "#{student.surname} #{student.name} #{student.fathername}", student_path(student) %>
+          </td>
+          <td>
+            <%= student.birthday %>
+          </td>
+          <td>
+            <%= student.adress %>
+          </td>
+          <td>
+            <%= affirmative %>ч
+          </td>
+          <td>
+            <%= negative %>ч
+          </td>
+          <td>
+            <a href="<%= edit_student_path(student) %>" style="font-size: 12pt; padding: 10px"><img title="Редактировать" height="45" width="45" src="<%= asset_path("paper.png") %>"></a><br>
+            <a data-confirm="Вы уверены, что хотите удалить студента '<%= student.surname %>'???" rel="nofollow" data-method="delete" style="font-size: 12pt; padding: 10px" href="<%= student_path(student) %>"><img title="Удалить" height="45" width="45" src="<%= asset_path("cross.png") %>"></a>
+          </td>
+        </tr>
+        <% i = i + 1 %>
+    <% end %>
+  </table>
+</center>

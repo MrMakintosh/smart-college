@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get '/add_pass/:student/:hours/:cause', to: 'passes#add_pass'
 
+  get '/search/:term', to: 'student#search'
+
   post 'specialties', to: 'specialty#create'
   post 'groups', to: 'group#create'
   post 'students', to: 'student#create'

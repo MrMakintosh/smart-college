@@ -1,10 +1,35 @@
-<h1>This is show method for <%= @department.name %> department</h1>
-<h2>Списки для отделения <%= @department.name %></h2>
-<% @department.specialties.each do |s| %>
-      Специальность <%= s.name %> :
-      <ul>
-        <% s.groups.each do |g| %>
-          <li><%= g.number %></li>
-        <% end %>
-      </ul>
-<% end %>
+<style>
+  td{
+    height: 100px;
+  }
+</style>
+<center>
+  <a href="javascript:history.back()" id="back" class="action-button shadow animate blue">Назад</a>
+</center>
+<h2>Специальности отделения <%= @department.name %></h2>
+<center>
+  <a href="<%= specialty_new_path %>" class="action-button shadow animate green">Добавить</a>
+  <table border="1">
+    <tr>
+      <th>№</th>
+      <th>Название специальности</th>
+      <th>Опции</th>
+    </tr>
+    <% i = 1 %>
+    <% @department.specialties.each do |s| %>
+        <tr>
+          <td>
+            <%= i %>
+          </td>
+          <td>
+            <%= link_to s.name, specialty_path(s) %>
+          </td>
+          <td>
+            <a href="<%= edit_specialty_path(s) %>" style="font-size: 12pt; padding: 10px" class="action-button shadow animate yellow">Редактировать</a>
+            <a data-confirm="Вы уверены, что хотите удалить специальность '<%= s.name %>'???" rel="nofollow" data-method="delete" style="font-size: 12pt; padding: 10px" href="<%= specialty_path(s) %>" class="action-button shadow animate red">Удалить</a>
+          </td>
+        </tr>
+        <% i = i + 1 %>
+    <% end %>
+  </table>
+</center>

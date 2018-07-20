@@ -1,156 +1,36 @@
-<h1>Редактирование списков</h1>
-<table align="center">
-  <tr>
-    <td>
-      <a href="<%=  %>#" id="departments-link" class="action-button shadow animate blue">Отделения</a>
-    </td>
-    <td>
-      <a href="<%=  %>#" id="specialties-link" class="action-button shadow animate blue">Специальности</a>
-    </td>
-    <td>
-      <a href="<%=  %>#" id="groups-link" class="action-button shadow animate blue">Группы</a>
-    </td>
-    <td>
-      <a href="<%=  %>#" id="students-link" class="action-button shadow animate blue">Студенты</a>
-    </td>
-  </tr>
-</table>
-<div id="departments">
-  <h1 align="center">Отделения</h1>
-  <center>
-    <a href="<%= new_department_path %>" class="action-button shadow animate green">Добавить</a>
-  </center>
-  <table border="0" align="center">
+<style>
+  td{
+    height: 60px;
+    text-align: center;
+  }
+</style>
+<center>
+  <a href="javascript:history.back()" id="back" class="action-button shadow animate blue">Назад</a>
+</center>
+<h2>Отделения</h2>
+<center>
+  <a href="<%= new_department_path %>" class="action-button shadow animate green">Добавить</a>
+  <table border="1">
+    <tr>
+      <th>№</th>
+      <th>Номер группы</th>
+      <th>Опции</th>
+    </tr>
+    <% i = 1 %>
     <% @department.each do |department| %>
         <tr>
           <td>
-            <div style="background-color: lavender">
-                <h2><%= link_to department.name, department_path(department) %></h2>
-            </div>
+            <%= i %>
           </td>
           <td>
-            <a href="<%= edit_department_path(department) %>" class="action-button shadow animate yellow">Редактировать</a>
-            <a data-confirm="Вы уверены?" rel="nofollow" data-method="delete" href="<%= departments_path(department) %>" class="action-button shadow animate red">Удалить</a>
+            <%= link_to department.name, department_path(department) %>
           </td>
-        </tr>
-    <% end %>
-  </table>
-</div>
-<!-- Specialties -->
-<div id="specialties">
-  <h1 align="center">Специальности</h1>
-  <center>
-    <a href="<%= specialty_new_path %>" class="action-button shadow animate green">Добавить</a>
-  </center>
-  <table border="0" align="center">
-    <% @department.each do |department| %>
-        <tr>
           <td>
-            <h2 align="center"><%= department.name %></h2>
+            <a href="<%= edit_department_path(department) %>" style="font-size: 12pt; padding: 10px" class="action-button shadow animate yellow">Редактировать</a>
+            <a data-confirm="Вы уверены, что хотите удалить Отделение '<%= department.name %>'???" rel="nofollow" data-method="delete" style="font-size: 12pt; padding: 10px" href="<%= department_path(department) %>" class="action-button shadow animate red">Удалить</a>
           </td>
         </tr>
-        <% department.specialties.each do |specialty| %>
-          <tr>
-            <td>
-              <div style="background-color: lavender">
-                <h2><%= link_to specialty.name, specialty_index_path(specialty) %></h2>
-              </div>
-            </td>
-            <td>
-              <a href="<%= edit_specialty_path(specialty) %>" class="action-button shadow animate yellow">Редактировать</a>
-              <a data-confirm="Are u sure" rel="nofollow" data-method="delete" href="<%= specialty_path(specialty) %>" class="action-button shadow animate red">Удалить</a>
-            </td>
-          </tr>
-        <% end %>
+        <% i = i + 1 %>
     <% end %>
   </table>
-</div>
-<!-- Groups -->
-<div id="groups">
-  <h1 align="center">Группы</h1>
-  <center>
-    <a href="<%= group_new_path %>" class="action-button shadow animate green">Добавить</a>
-  </center>
-  <table border="0" align="center">
-    <% @department.each do |department| %>
-        <% department.specialties.each do |specialty| %>
-            <% specialty.groups.each do |group| %>
-              <tr>
-                <td>
-                  <div style="background-color: lavender">
-                    <h2><%= link_to group.number, group_index_path(group) %></h2>
-                  </div>
-                </td>
-                <td>
-                  <a href="<%= edit_group_path(group) %>" class="action-button shadow animate yellow">Редактировать</a>
-                  <a data-confirm="Are u sure" rel="nofollow" data-method="delete" href="<%= group_path(group) %>" class="action-button shadow animate red">Удалить</a>
-                </td>
-              </tr>
-            <% end %>
-        <% end %>
-    <% end %>
-  </table>
-</div>
-<!-- Students -->
-<div id="students">
-  <h1 align="center">Студенты</h1>
-  <center>
-    <a href="<%= student_new_path %>" class="action-button shadow animate green">Добавить</a>
-  </center>
-  <table border="0" align="center">
-    <% @department.each do |department| %>
-        <% department.specialties.each do |specialty| %>
-            <% specialty.groups.each do |group| %>
-                <% group.students.each do |student| %>
-                  <tr>
-                    <td>
-                      <div style="background-color: lavender">
-                        <h2><%= link_to "#{student.name} #{student.surname} #{student.fathername}", student_path(student) %></h2>
-                      </div>
-                    </td>
-                    <td>
-                      <a href="<%= edit_student_path(student) %>" class="action-button shadow animate yellow">Редактировать</a>
-                      <a data-confirm="Are u sure?" rel="nofollow" data-method="delete" href="<%= student_path(student) %>" class="action-button shadow animate red">Удалить</a>
-                    </td>
-                  </tr>
-                <% end %>
-            <% end %>
-        <% end %>
-    <% end %>
-  </table>
-</div>
-<script>
-    $(document).ready(function(){
-        $("#specialties").hide();
-        $("#groups").hide();
-        $("#students").hide();
-        $("#departments-link").on("click", function (){
-            $("#departments").show();
-            $("#specialties").hide();
-            $("#groups").hide();
-            $("#students").hide();
-            return false;
-        });
-        $("#specialties-link").click(function (){
-            $("#departments").hide();
-            $("#specialties").show();
-            $("#groups").hide();
-            $("#students").hide();
-            return false;
-        });
-        $("#groups-link").on("click", function (){
-            $("#departments").hide();
-            $("#specialties").hide();
-            $("#groups").show();
-            $("#students").hide();
-            return false;
-        });
-        $("#students-link").on("click", function (){
-            $("#departments").hide();
-            $("#specialties").hide();
-            $("#groups").hide();
-            $("#students").show();
-            return false;
-        });
-    });
-</script>
+</center>

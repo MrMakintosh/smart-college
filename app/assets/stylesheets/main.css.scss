@@ -44,7 +44,7 @@ div.app-name{
   width: 40%;
   letter-spacing: 2.5px;
   font-size: 18pt;
-  margin-top: 3%;
+  margin-top: 35px;
   margin-right: 5%;
 }
 img.logo, span.logo{
@@ -54,31 +54,21 @@ img.logo, span.logo{
   margin-left: 5%;
   margin-right: 23%;
 }
-div.search{
-  margin-top: 3%;
-  margin-left: -150px;
-  height: 30%;
-  width: 26%;
-  input{
-    height: 60%;
-    width: 60%;
-    border: 1px solid white;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    float: left;
-  }
-  button{
-    height: 70%;
-    width: 15%;
-    border: 1px solid white;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: white;
+div.logout{
+  margin-top: 40px;
+  margin-left: 40px;
+  a{
+    text-decoration: none;
+    color: white;
     font-weight: bold;
-    border-left-color: #2b5797;
+    font-size: 14pt;
+    letter-spacing: 0.5px;
   }
 }
-span.logo, div.app-name, div.search{
+div.logout a:hover{
+  font-size: 18pt;
+}
+span.logo, div.app-name, div.logout{
   float: left;
 }
 
@@ -95,3 +85,7 @@ div.content{
     font-weight: 200;
   }
 }
+
+/*
+  STUDENT SHOW METHOD
+ */
