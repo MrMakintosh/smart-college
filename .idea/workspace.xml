@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3ac821b-154f-461f-a334-02abd9be673a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/users.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/group/show.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/specialty/show.html.erb" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/student.coffee" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/javascripts/users.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/student.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/student.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/student.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/main.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/main.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/group_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/group_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/specialty_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/specialty_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/student_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/student_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/student.rb" afterPath="$PROJECT_DIR$/app/models/student.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/departments/index.html.erb" afterPath="$PROJECT_DIR$/app/views/departments/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/departments/new.html.erb" afterPath="$PROJECT_DIR$/app/views/departments/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/departments/show.html.erb" afterPath="$PROJECT_DIR$/app/views/departments/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/group/new.html.erb" afterPath="$PROJECT_DIR$/app/views/group/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/specialty/new.html.erb" afterPath="$PROJECT_DIR$/app/views/specialty/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/student/show.html.erb" afterPath="$PROJECT_DIR$/app/views/student/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/profile.html.erb" afterPath="$PROJECT_DIR$/app/views/users/profile.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-    </list>
+    <list default="true" id="a3ac821b-154f-461f-a334-02abd9be673a" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/public/system/" />
@@ -60,20 +34,20 @@
             <state relative-caret-position="72">
               <caret line="7" column="780" lean-forward="false" selection-start-line="7" selection-start-column="780" selection-end-line="7" selection-end-column="780" />
               <folding>
-                <marker date="1532078823853" expanded="true" signature="602:637" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="871:894" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="925:959" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="991:1042" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="1226:1276" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="1323:1338" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="1403:1427" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="1876:1911" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="2145:2168" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="2199:2233" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="2265:2316" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="2500:2550" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="2597:2612" ph="..." />
-                <marker date="1532078823853" expanded="true" signature="2677:2701" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="602:637" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="871:894" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="925:959" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="991:1042" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="1226:1276" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="1323:1338" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="1403:1427" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="1876:1911" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="2145:2168" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="2199:2233" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="2265:2316" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="2500:2550" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="2597:2612" ph="..." />
+                <marker date="1532081424626" expanded="true" signature="2677:2701" ph="..." />
               </folding>
             </state>
           </provider>
@@ -93,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/specialty/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -133,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+              <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -860,12 +834,12 @@
       <workItem from="1531806163583" duration="13711000" />
       <workItem from="1531892442793" duration="3377000" />
       <workItem from="1531982452070" duration="4389000" />
-      <workItem from="1532068482067" duration="7039000" />
+      <workItem from="1532068482067" duration="7452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256998000" />
+    <option name="totallyTimeSpent" value="257411000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1215,7 +1189,7 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1241,20 +1215,20 @@
         <state relative-caret-position="72">
           <caret line="7" column="780" lean-forward="false" selection-start-line="7" selection-start-column="780" selection-end-line="7" selection-end-column="780" />
           <folding>
-            <marker date="1532078823853" expanded="true" signature="602:637" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="871:894" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="925:959" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="991:1042" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="1226:1276" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="1323:1338" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="1403:1427" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="1876:1911" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="2145:2168" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="2199:2233" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="2265:2316" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="2500:2550" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="2597:2612" ph="..." />
-            <marker date="1532078823853" expanded="true" signature="2677:2701" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="602:637" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="871:894" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="925:959" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="991:1042" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="1226:1276" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="1323:1338" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="1403:1427" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="1876:1911" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="2145:2168" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="2199:2233" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="2265:2316" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="2500:2550" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="2597:2612" ph="..." />
+            <marker date="1532081424626" expanded="true" signature="2677:2701" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1310,7 +1284,7 @@
     <entry file="file://$PROJECT_DIR$/app/views/specialty/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
           <folding />
         </state>
       </provider>
