@@ -1,0 +1,81 @@
+<style>
+  th{
+    height: 30px;
+    background-color: #2980B9;
+    color: white;
+  }
+</style>
+<center>
+  <a href="javascript:history.back()" id="back" class="action-button shadow animate blue">Назад</a>
+</center>
+<div id="rating-students">
+  <%
+    @passes_affirmative = Array.new
+    @passes_negative = Array.new
+    affirmative = 0
+    negative = 0
+    @students.each do |student|
+      student.passes.each do |pass|
+        if pass.cause == "1"
+          affirmative = affirmative + pass.hours
+        else
+          negative = negative + pass.hours
+        end
+      end
+      @passes_affirmative[student.id] = affirmative
+      @passes_negative[student.id] = negative
+      affirmative = 0
+      negative = 0
+    end
+    k = 0
+    studs = []
+    @students.each do |student|
+      studs[k] = Hash.new
+      studs[k][:id] = student.id
+      studs[k][:fio] = "#{student.surname} #{student.name} #{student.fathername}"
+      studs[k][:group] = student.group.number
+      studs[k][:passes_n] = @passes_negative[student.id]
+      studs[k][:passes_a] = @passes_affirmative[student.id]
+      studs[k][:passes_all] = @passes_affirmative[student.id] + @passes_negative[student.id]
+      k = k + 1
+    end
+    studs = studs.sort_by { |k| k[:passes_n] }
+    studs = studs.reverse!
+  %>
+  <center>
+  <table border="1" style="text-align: center">
+    <tr>
+      <th>№</th>
+      <th>ФИО</th>
+      <th>Группа</th>
+      <th>Пропуски по уважительной причине</th>
+      <th>Пропуски по неуважительной причине</th>
+      <th>Всего пропусков</th>
+    </tr>
+    <% i = 1 %>
+    <% studs.each do |studs| %>
+        <tr>
+          <td>
+            <%= i %>
+          </td>
+          <td>
+            <%= link_to "#{studs[:fio]}", student_path(studs[:id]) %>
+          </td>
+          <td>
+            <%= studs[:group] %>
+          </td>
+          <td>
+            <%= studs[:passes_a] %>ч
+          </td>
+          <td>
+            <%= studs[:passes_n] %>ч
+          </td>
+          <td>
+            <%= studs[:passes_all] %>
+          </td>
+        </tr>
+        <% i = i + 1 %>
+    <% end %>
+  </table>
+  </center>
+</div>

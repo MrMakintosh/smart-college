@@ -17,11 +17,15 @@ Rails.application.routes.draw do
 
   get 'departments/index'
 
-  get '/api_request/:id', to: 'student#api_request'
+  get '/api_request/:id/:date_of/:date_for', to: 'student#api_request'
 
-  get '/add_pass/:student/:hours/:cause', to: 'passes#add_pass'
+  get '/add_pass/:student/:affirmative_hours/:negative_hours/:date_of/:date_for', to: 'passes#add_pass'
 
   get '/search/:term', to: 'student#search'
+
+  get '/users/ratings', to: 'users#ratings', as: 'ratings'
+
+  get '/passes/index'
 
   post 'specialties', to: 'specialty#create'
   post 'groups', to: 'group#create'

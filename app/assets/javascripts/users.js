@@ -1,22 +1,3 @@
-
-$(document).ready(function(){
-    var output="<table class='students' border='1'><tr><th>№</th><th>ФИО</th><th>Адрес</th><th>Пропуски (Уважительные)</th><th>Пропуски (Неуважительные)</th><th colspan='2'>Отметить отсутствующих</th>";
-    $.ajax({
-      type: 'GET',
-      url: "/api_request/1",
-      dataType: 'json',
-      success: function (data) {
-        var j = 1;
-        for(var i = 0; i < data.students.length; i++){
-          output += output_for_table({"students":data.students[i], "passes_affirmative":data.passes_affirmative, "passes_negative":data.passes_negative}, j, 0);
-          j += 1;
-        }
-        output += "</table>";
-        $("#result").html(output);
-      }
-    })
-});
-
 $("#group").change(function () {
     var output="<table class='students' border='1'><tr><th>№</th><th>ФИО</th><th>Адрес</th><th>Пропуски (Уважительные)</th><th>Пропуски (Неуважительные)</th><th colspan='2'>Отметить отсутствующих</th>";
     $.ajax({
@@ -120,3 +101,21 @@ $("#search").keyup(function() {
       })
     }
 });
+
+$("#students-rating").click(function () {
+    var output="<table class='students' border='1'><tr><th>№</th><th>ФИО</th><th>Адрес</th><th>Пропуски (Уважительные)</th><th>Пропуски (Неуважительные)</th><th colspan='2'>Отметить отсутствующих</th>";
+    $.ajax({
+        type: 'GET',
+        url: "/api_request/"+$("#group").val(),
+        dataType: 'json',
+        success: function (data) {
+            var j = 1;
+            for(var i = 0; i < data.students.length; i++){
+                output += output_for_table({"students":data.students[i], "passes_affirmative":data.passes_affirmative, "passes_negative":data.passes_negative}, j, 0);
+                j += 1;
+            }
+            output += "</table>";
+            $("#result").html(output);
+        }
+    })
+})

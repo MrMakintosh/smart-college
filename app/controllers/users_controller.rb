@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     @department = Department.all
   end
 
+  def ratings
+    @department = Department.all
+    @students = Student.all
+  end
+
   def new
     @user = User.new
   end

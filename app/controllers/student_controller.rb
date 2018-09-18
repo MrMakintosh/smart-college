@@ -44,7 +44,15 @@ class StudentController < ApplicationController
   end
 
   def api_request
-    @group = Group.find(params[:id])
+    if params[:id] == "0"
+      date_of = Time.now
+      date_for = Time.now
+      @group = Group.first
+    else
+      date_of = params[:date_of].to_date
+      date_for = params[:date_for].to_date
+      @group = Group.find(params[:id])
+    end
     @student = @group.students.all
     @passes_affirmative = Array.new
     @passes_negative = Array.new
@@ -52,10 +60,12 @@ class StudentController < ApplicationController
     negative = 0
     @student.each do |student|
       student.passes.each do |pass|
-        if pass.cause == "1"
-          affirmative = affirmative + pass.hours
-        else
-          negative = negative + pass.hours
+        if (date_of..date_for).include? pass.date_of
+          if pass.cause == "1"
+            affirmative = affirmative + pass.hours
+          else
+            negative = negative + pass.hours
+          end
         end
       end
       @passes_affirmative[student.id] = affirmative

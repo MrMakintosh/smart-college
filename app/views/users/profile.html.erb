@@ -13,6 +13,23 @@
         }
         return output;
     }
+    $(document).ready(function(){
+        var output="<table class='students' border='1'><tr><th>№</th><th>ФИО</th><th>Адрес</th><th>Пропуски (Уважительные)</th><th>Пропуски (Неуважительные)</th><th colspan='2'>Отметить отсутствующих</th>";
+        $.ajax({
+            type: 'GET',
+            url: "/api_request/1",
+            dataType: 'json',
+            success: function (data) {
+                var j = 1;
+                for(var i = 0; i < data.students.length; i++){
+                    output += output_for_table({"students":data.students[i], "passes_affirmative":data.passes_affirmative, "passes_negative":data.passes_negative}, j, 0);
+                    j += 1;
+                }
+                output += "</table>";
+                $("#result").html(output);
+            }
+        })
+    });
 </script>
 <% require 'json' %>
 <style>
@@ -83,28 +100,113 @@
 <center>
   <% if current_user.admin == 1 %>
     <a href="<%= departments_index_path %>" class="action-button shadow animate blue">Редактировать списки</a>
+    <a href="<%= passes_index_path %>" class="action-button shadow animate blue">Выставлять пропуски</a>
+    <a href="<%= ratings_path %>" class="action-button shadow animate blue">Рейтинги</a>
   <% end %>
   <% if current_user.superadmin == 1 %>
     <a href="<%= users_path %>" class="action-button shadow animate blue">Редактировать пользователей</a>
   <% end %>
   <h2 id="nomarging">Списки студентов</h2>
   <p>Выберите группу</p>
-      <select id="group">
-          <% @department.each do |department| %>
-            <% department.specialties.each do |specialty| %>
-              <% specialty.groups.each do |group| %>
-                <option value="<%= group.id %>"><%= group.number %></option>
-              <% end %>
-            <% end %>
-          <% end %>
-      </select>
-  <h2 style="margin: 5px;">ИЛИ</h2>
+    <% @department.each do |department| %>
+      <% department.specialties.each do |specialty| %>
+        <% specialty.groups.each do |group| %>
+            <p style="height:50px; width:130px; margin-left: 15px; float: left; border-radius: 20px; background-color: #2b5797; font-size: 28pt; color: white; text-decoration: none;" id="<%= group.number %>" name="groupButton" onclick="groupButtonClick(<%= group.id %>)"><%= group.number %></p>
+        <% end %>
+      <% end %>
+    <% end %>
+  <h2 style="margin: 5px; margin-top: 10%">ИЛИ</h2>
   <p style="margin: 0px;">Воспользуйтесь поиском</p>
   <div class="search-wrapper">
     <form>
       <input type="text" name="focus" id="search" required class="search-box" placeholder="Введите фамилию учащегося" />
       <button class="close-icon" type="reset"></button>
     </form>
+  </div>
+  <div id="table-header">
+    <table style="width: 100%" border="1">
+      <tr>
+        <th rowspan="4">Номер группы</th>
+        <th colspan="40">Пропуски занятий</th>
+        <th rowspan="4">Всего</th>
+      </tr>
+      <tr>
+        <th colspan="4">09</th>
+        <th colspan="4">10</th>
+        <th colspan="4">11</th>
+        <th colspan="4">12</th>
+        <th colspan="4">01</th>
+        <th colspan="4">02</th>
+        <th colspan="4">03</th>
+        <th colspan="4">04</th>
+        <th colspan="4">05</th>
+        <th colspan="4">06</th>
+      </tr>
+      <tr>
+        <th colspan="2">1-15</th>
+        <th colspan="2">1-30</th>
+        <th colspan="2">1-15</th>
+        <th colspan="2">16-31</th>
+        <th colspan="2">1-15</th>
+        <th colspan="2">16-30</th>
+        <th colspan="2">1-15</th>
+        <th colspan="2">16-31</th>
+        <th colspan="2">1-15</th>
+        <th colspan="2">1-30</th>
+        <th colspan="2">1-15</th>
+        <th colspan="2">16-28</th>
+        <th colspan="2">1-15</th>
+        <th colspan="2">16-31</th>
+        <th colspan="2">1-15</th>
+        <th colspan="2">16-30</th>
+        <th colspan="2">1-15</th>
+        <th colspan="2">16-31</th>
+        <th colspan="2">1-15</th>
+        <th colspan="2">16-30</th>
+      </tr>
+      <tr>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+        <th>Ув</th>
+        <th>Не ув</th>
+      </tr>
+    </table>
   </div>
   <div id="result">
 
