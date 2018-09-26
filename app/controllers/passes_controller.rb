@@ -21,7 +21,7 @@ class PassesController < ApplicationController
     @pass_n.date_of = params[:date_of].to_date
     @pass_n.date_for = params[:date_for].to_date
     if @pass_a.save and @pass_n.save
-      render :json => @pass_a
+      render :json => @student
     end
   end
 

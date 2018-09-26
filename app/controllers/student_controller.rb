@@ -51,7 +51,7 @@ class StudentController < ApplicationController
     else
       date_of = params[:date_of].to_date
       date_for = params[:date_for].to_date
-      @group = Group.find(params[:id])
+      @group = Student.find(params[:id]).group
     end
     @student = @group.students.all
     @passes_affirmative = Array.new
