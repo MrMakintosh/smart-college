@@ -14,7 +14,7 @@ function passButtonClickPass(form, date_of, date_for) {
             var output="<table class='students' border='1'><tr><th>№</th><th>ФИО</th><th>Пропуски (Уважительные)</th><th>Пропуски (Неуважительные)</th><th colspan='2'>Отметить отсутствующих</th>";
             $.ajax({
                 type: 'GET',
-                url: "/api_request/"+form.student.value+"/"+date_of+"/"+date_for,
+                url: "/api_request/"+form.student.value+"/"+date_of+"/"+date_for+"0",
                 dataType: 'json',
                 success: function (data) {
                     var j = 1;
@@ -33,7 +33,7 @@ function groupButtonClick(id, date_of, date_for) {
     var output="<table class='students' border='1'><tr><th>№</th><th>ФИО</th><th>Пропуски (Уважительные)</th><th>Пропуски (Неуважительные)</th><th colspan='2'>Отметить отсутствующих</th>";
     $.ajax({
         type: 'GET',
-        url: "/api_request/"+id+"/"+date_of+"/"+date_for,
+        url: "/api_request/"+id+"/"+date_of+"/"+date_for+"/1",
         dataType: 'json',
         success: function (data) {
             var j = 1;

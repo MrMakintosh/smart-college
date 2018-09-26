@@ -48,10 +48,14 @@ class StudentController < ApplicationController
       date_of = Time.now
       date_for = Time.now
       @group = Group.first
-    else
+    elsif params[:flag] == "0"
       date_of = params[:date_of].to_date
       date_for = params[:date_for].to_date
       @group = Student.find(params[:id]).group
+    else
+      date_of = params[:date_of].to_date
+      date_for = params[:date_for].to_date
+      @group = Group.find(params[:id])
     end
     @student = @group.students.all
     @passes_affirmative = Array.new
