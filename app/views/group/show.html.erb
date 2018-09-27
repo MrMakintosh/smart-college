@@ -4,6 +4,8 @@
     text-align: center;
   }
 </style>
+<% passes_affirmative = []%>
+<% passes_negative = [] %>
 <% affirmative = 0 %>
 <% negative = 0 %>
 <% @group.students.each do |student| %>
@@ -14,6 +16,10 @@
             <% negative = negative + pass.hours %>
         <% end %>
     <% end %>
+    <% passes_affirmative[student.id] = affirmative %>
+    <% passes_negative[student.id] = negative %>
+    <% affirmative = 0 %>
+    <% negative = 0 %>
 <% end %>
 <center>
   <a href="javascript:history.back()" id="back" class="action-button shadow animate blue">Назад</a>
@@ -47,10 +53,10 @@
             <%= student.adress %>
           </td>
           <td>
-            <%= affirmative %>ч
+            <%= passes_affirmative[student.id] %>ч
           </td>
           <td>
-            <%= negative %>ч
+            <%= passes_negative[student.id] %>ч
           </td>
           <td>
             <a href="<%= edit_student_path(student) %>" style="font-size: 12pt; padding: 10px"><img title="Редактировать" height="45" width="45" src="<%= asset_path("paper.png") %>"></a><br>

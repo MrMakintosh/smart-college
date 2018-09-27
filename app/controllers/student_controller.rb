@@ -77,7 +77,7 @@ class StudentController < ApplicationController
       affirmative = 0
       negative = 0
     end
-    @students = @student.includes(:group).pluck('students.name', 'students.surname', 'students.fathername', 'students.adress', 'groups.number', 'students.id')
+    @students = @student.order(:surname).includes(:group).pluck('students.name', 'students.surname', 'students.fathername', 'students.adress', 'groups.number', 'students.id')
     response = { :students => @students, :passes_affirmative => @passes_affirmative, :passes_negative => @passes_negative }
     render :json => response
   end
