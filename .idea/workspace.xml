@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3ac821b-154f-461f-a334-02abd9be673a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/smart-pass.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/smart-pass.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/passes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/passes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/passes_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/passes_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/student_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/student_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/departments/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/departments/edit.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/departments/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/departments/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/departments/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/departments/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/departments/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/departments/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/group/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/group/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/group/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/group/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/group/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/group/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/passes/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/passes/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/specialty/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/specialty/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/specialty/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/specialty/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/student/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/student/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/student/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/student/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/profile.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/profile.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -62,7 +45,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
-          <entry key="erb" value="16" />
+          <entry key="erb" value="17" />
           <entry key="js" value="2" />
           <entry key="rb" value="11" />
           <entry key="scss" value="3" />
@@ -73,7 +56,7 @@
         <counts>
           <entry key="CSS" value="1" />
           <entry key="JavaScript" value="2" />
-          <entry key="RHTML" value="16" />
+          <entry key="RHTML" value="17" />
           <entry key="Ruby" value="11" />
           <entry key="SCSS" value="3" />
           <entry key="YAML" value="1" />
@@ -81,7 +64,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="erb" value="4214" />
+          <entry key="erb" value="4215" />
           <entry key="js" value="348" />
           <entry key="rb" value="2284" />
           <entry key="scss" value="51" />
@@ -90,7 +73,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="348" />
-          <entry key="RHTML" value="4214" />
+          <entry key="RHTML" value="4215" />
           <entry key="Ruby" value="2284" />
           <entry key="SCSS" value="51" />
         </counts>
@@ -125,11 +108,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/departments/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+            <state relative-caret-position="105">
+              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/departments/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -152,7 +144,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/passes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="495">
@@ -229,7 +221,6 @@
         <option value="$PROJECT_DIR$/app/views/specialty/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/group/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/group/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/departments/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/group/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/student/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/student/edit.html.erb" />
@@ -237,6 +228,7 @@
         <option value="$PROJECT_DIR$/app/views/users/profile.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/passes_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/departments/index.html.erb" />
       </list>
     </option>
   </component>
@@ -515,12 +507,12 @@
       <workItem from="1536519224527" duration="1181000" />
       <workItem from="1536564696209" duration="43614000" />
       <workItem from="1537439527750" duration="155000" />
-      <workItem from="1537767132622" duration="31207000" />
+      <workItem from="1537767132622" duration="31513000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="345055000" />
+    <option name="totallyTimeSpent" value="345361000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -790,13 +782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/departments/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/departments/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -829,13 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/departments/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -936,6 +914,20 @@
           <folding>
             <element signature="e#804#852#2" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/departments/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/departments/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
         </state>
       </provider>
     </entry>
