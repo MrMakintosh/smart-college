@@ -22,9 +22,9 @@
     <% negative = 0 %>
 <% end %>
 <center>
-  <a href="javascript:history.back()" id="back" class="action-button shadow animate blue">Назад</a>
+  <a href="/specialty/<%= @group.specialty_id %>" id="back" class="action-button shadow animate blue">Назад</a>
 </center>
-<h2>Студенты группы "<%= @group.number %>"</h2>
+<h2>Учащиеся группы "<%= @group.number %>"</h2>
 <center>
   <a href="<%= student_new_path %>" class="action-button shadow animate green">Добавить</a>
   <table border="1">
@@ -38,7 +38,7 @@
       <th>Опции</th>
     </tr>
     <% i = 1 %>
-    <% @group.students.each do |student| %>
+    <% @group.students.sort_by {|obj| obj.surname}.each do |student| %>
         <tr>
           <td>
             <%= i %>
@@ -60,10 +60,15 @@
           </td>
           <td>
             <a href="<%= edit_student_path(student) %>" style="font-size: 12pt; padding: 10px"><img title="Редактировать" height="45" width="45" src="<%= asset_path("paper.png") %>"></a><br>
-            <a data-confirm="Вы уверены, что хотите удалить студента '<%= student.surname %>'???" rel="nofollow" data-method="delete" style="font-size: 12pt; padding: 10px" href="<%= student_path(student) %>"><img title="Удалить" height="45" width="45" src="<%= asset_path("cross.png") %>"></a>
+            <a data-confirm="Вы уверены, что хотите удалить студента '<%= student.surname %>'???" rel="nofollow" data-method="delete" style="font-size: 12pt; padding: 10px" id="delete-link" href="<%= student_path(student) %>"><img title="Удалить" height="45" width="45" src="<%= asset_path("cross.png") %>"></a>
           </td>
         </tr>
         <% i = i + 1 %>
     <% end %>
   </table>
 </center>
+<script>
+  $("#delete-link").click(function () {
+      $(document).restart
+  })
+</script>

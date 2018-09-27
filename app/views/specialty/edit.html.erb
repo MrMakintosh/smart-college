@@ -1,5 +1,8 @@
+<center>
+  <a href="/departments/<%= @specialty.department_id %>" id="back" class="action-button shadow animate blue" style="margin-bottom: 100%">Назад</a>
+</center>
 <div class="container">
-  <div class="form-container front">
+  <div class="form-container front" style="margin-top: 5%">
     <h1 class="form-label">Редактирование специальности</h1>
     <%= form_for @specialty do |f| %>
         <div class="group">
@@ -12,9 +15,6 @@
                 <option value="<%= d.id %>"><%= d.name %></option>
             <% end %>
           </select>
-          <span class="highlight"></span>
-          <span class="bar"></span>
-          <label>Название специальности</label>
         </div>
         <%= f.submit "Изменить специальность", class:"button raised btn btn-primary btn-lg" %>
     <% end %>

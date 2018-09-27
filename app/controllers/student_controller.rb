@@ -40,7 +40,7 @@ class StudentController < ApplicationController
   def destroy
     @student = Student.find(params[:id])
     @student.destroy
-    redirect_to "/departments/index", notice: "Студент удален"
+    redirect_to "/group/#{@student.group.id}"
   end
 
   def api_request

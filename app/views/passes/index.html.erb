@@ -7,17 +7,17 @@
         var output = "";
         if(k == 1){
             output += "<tr><td>" + i + "</td><td><a href='/student/" + data.students[5] + "'>" + data.students[1] + " " + data.students[0] + " " + data.students[2] + "</a></td>";
-            output += "<td>" + data.students[4] +"</td><td>" + passes_affirmative[data.students[5]] + " часов</td><td>" + passes_negative[data.students[5]] + " часов</td><td style='border-bottom:0px; border-right:0px'><form method='post' name='form"+i+"' action='javascript:passButtonClickPass(this.form"+i+", \""+date_of+"\", \""+date_for+"\")'><table><tr><td><input type='hidden' name='student' value='"+data.students[5]+"'><input type='number' name='affirmative_hours' class='profile-input' style='height:10px; width:30px'></td><td style='border-bottom:0px; border-left:0px'>Часов по уважительной причине</td></tr><tr><td><input type='number' name='negative_hours' class='profile-input' style='height:10px; width:30px'></td><td style='border-top:0px; border-bottom:0px; border-right:0px' >Часов по неуважительной причине</td></tr><tr><td style='border-top:0px;' colspan ='2'><input type='submit' class='profile-input' style='height:50px; width:250px' id='pass_button' value='Добавить'></form></td></tr></table>";
+            output += "<td>" + data.students[4] +"</td><td>" + passes_affirmative[data.students[5]] + " часов</td><td>" + passes_negative[data.students[5]] + " часов</td><td style='border-bottom:0px; border-right:0px'><form method='post' name='form"+i+"' action='javascript:passButtonClickPass(this.form"+i+", \""+date_of+"\", \""+date_for+"\")'><table><tr><td><input type='hidden' name='student' value='"+data.students[5]+"'><input type='number' name='affirmative_hours' class='profile-input' style='height:10px; width:50px'></td><td style='border-bottom:0px; border-left:0px'>Часов по уважительной причине</td></tr><tr><td><input type='number' name='negative_hours' class='profile-input' style='height:10px; width:50px'></td><td style='border-top:0px; border-bottom:0px; border-right:0px' >Часов по неуважительной причине</td></tr><tr><td style='border-top:0px;' colspan ='2'><input type='submit' class='profile-input' style='height:50px; width:250px' id='pass_button' value='Добавить'></form></td></tr></table>";
         }
         else{
             output += "<tr><td>" + i + "</td><td><a href='/student/" + data.students[5] + "'>" + data.students[1] + " " + data.students[0] + " " + data.students[2] + "</a></td>";
-            output += "<td>" + passes_affirmative[data.students[5]] + " часов</td><td>" + passes_negative[data.students[5]] + " часов</td><td style='border-bottom:0px; border-right:0px'><form method='post' name='form"+i+"' action='javascript:passButtonClickPass(this.form"+i+", \""+date_of+"\", \""+date_for+"\")'><table><tr><td><input type='hidden' name='student' value='"+data.students[5]+"'><input type='number' name='affirmative_hours' class='profile-input' style='height:10px; width:30px'></td><td style='border-bottom:0px; border-left:0px'>Часов по уважительной причине</td></tr><tr><td><input type='number' name='negative_hours' class='profile-input' style='height:10px; width:30px'></td><td style='border-top:0px; border-bottom:0px; border-right:0px' >Часов по неуважительной причине</td></tr><tr><td style='border-top:0px;' colspan ='2'><input type='submit' class='profile-input' style='height:50px; width:250px' id='pass_button' value='Добавить'></form></td></tr></table>";
+            output += "<td>" + passes_affirmative[data.students[5]] + " часов</td><td>" + passes_negative[data.students[5]] + " часов</td><td style='border-bottom:0px; border-right:0px'><form method='post' name='form"+i+"' action='javascript:passButtonClickPass(this.form"+i+", \""+date_of+"\", \""+date_for+"\")'><table><tr><td><input type='hidden' name='student' value='"+data.students[5]+"'><input type='number' name='affirmative_hours' class='profile-input' style='height:10px; width:50px'></td><td style='border-bottom:0px; border-left:0px'>Часов по уважительной причине</td></tr><tr><td><input type='number' name='negative_hours' class='profile-input' style='height:10px; width:50px'></td><td style='border-top:0px; border-bottom:0px; border-right:0px' >Часов по неуважительной причине</td></tr><tr><td style='border-top:0px;' colspan ='2'><input type='submit' class='profile-input' style='height:50px; width:250px' id='pass_button' value='Добавить'></form></td></tr></table>";
         }
         return output;
     }
 </script>
 <center>
-  <a href="javascript:history.back()" id="back" class="action-button shadow animate blue">Назад</a>
+  <a href="/departments/index" id="back" class="action-button shadow animate blue">Назад</a>
 </center>
 <center>
   <h3>Выберите период:</h3>
@@ -27,13 +27,15 @@
 </center>
 <p>Выберите группу</p>
 <span style="margin-left: 100px; width: 100px;"></span>
-<% @department.each do |department| %>
-  <% department.specialties.each do |specialty| %>
-    <% specialty.groups.each do |group| %>
-      <p style="height:50px; width:130px; margin-left: 15px; float: left; border-radius: 20px; background-color: #2b5797; font-size: 28pt; color: white; text-decoration: none;" id="<%= group.number %>" name="groupButton" onclick="groupButtonClick(<%= group.id %>, document.getElementById('date_of').value, document.getElementById('date_for').value)"><%= group.number %></p>
+<div>
+  <% @department.each do |department| %>
+    <% department.specialties.each do |specialty| %>
+      <% specialty.groups.each do |group| %>
+        <p style="height:50px; width:130px; margin-left: 15px; float: left; border-radius: 20px; background-color: #2b5797; font-size: 28pt; color: white; text-decoration: none;" id="<%= group.number %>" name="groupButton" onclick="groupButtonClick(<%= group.id %>, document.getElementById('date_of').value, document.getElementById('date_for').value)"><%= group.number %></p>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>
 <center>
   <div id="notice" style="margin-top: 10%">
 
