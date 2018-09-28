@@ -72,6 +72,14 @@ class PassesController < ApplicationController
                   end
                 end
               end
+            else
+              if pass.date_of_pass.month == first_month
+                  if pass.cause == "1"
+                    affirmative_second = affirmative_second + pass.hours
+                  else
+                    negative_second = negative_second + pass.hours
+                  end
+              end
             end
           end
           @passes["#{group.number}"]["#{first_month}"]["first_half"]["affirmative"] = affirmative_first
@@ -104,6 +112,14 @@ class PassesController < ApplicationController
                   else
                     negative_second = negative_second + pass.hours
                   end
+                end
+              end
+            else
+              if pass.date_of_pass.month == first_month
+                if pass.cause == "1"
+                  affirmative_second = affirmative_second + pass.hours
+                else
+                  negative_second = negative_second + pass.hours
                 end
               end
             end
@@ -165,11 +181,13 @@ class PassesController < ApplicationController
         @passes["#{@group.number}"]["#{student.id}"]["snf"] = "#{student.surname} #{student.name} #{student.fathername}"
         @passes["#{@group.number}"]["#{student.id}"]["#{first_month}"] = Hash.new
         student.passes.each do |pass|
-          if pass.date_of.month == first_month and pass.date_for.month == first_month
-            if pass.cause == "1"
-              affirmative = affirmative + pass.hours
-            else
-              negative = negative + pass.hours
+          unless pass.date_of == nil
+            if pass.date_of.month == first_month and pass.date_for.month == first_month
+              if pass.cause == "1"
+                affirmative = affirmative + pass.hours
+              else
+                negative = negative + pass.hours
+              end
             end
           end
         end
