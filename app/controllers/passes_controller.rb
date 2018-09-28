@@ -115,7 +115,7 @@ class PassesController < ApplicationController
                 end
               end
             else
-              if pass.date_of_pass.month == first_month
+              if pass.date_of_pass.month == second_month
                 if pass.cause == "1"
                   affirmative_second = affirmative_second + pass.hours
                 else

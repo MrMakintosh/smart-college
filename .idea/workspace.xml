@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3ac821b-154f-461f-a334-02abd9be673a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/passes_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/passes_controller.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -65,7 +65,7 @@
         <counts>
           <entry key="erb" value="4938" />
           <entry key="js" value="348" />
-          <entry key="rb" value="2761" />
+          <entry key="rb" value="2826" />
           <entry key="scss" value="53" />
         </counts>
       </usages-collector>
@@ -73,7 +73,7 @@
         <counts>
           <entry key="JavaScript" value="348" />
           <entry key="RHTML" value="4938" />
-          <entry key="Ruby" value="2761" />
+          <entry key="Ruby" value="2826" />
           <entry key="SCSS" value="53" />
         </counts>
       </usages-collector>
@@ -139,8 +139,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/passes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="90" column="35" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
+            <state relative-caret-position="831">
+              <caret line="184" column="15" selection-start-line="184" selection-start-column="15" selection-end-line="184" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -512,12 +512,12 @@
       <workItem from="1536519224527" duration="1181000" />
       <workItem from="1536564696209" duration="43614000" />
       <workItem from="1537439527750" duration="155000" />
-      <workItem from="1537767132622" duration="43204000" />
+      <workItem from="1537767132622" duration="43899000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="357052000" />
+    <option name="totallyTimeSpent" value="357747000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -530,7 +530,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17167382" />
       <window_info id="Structure" order="1" weight="0.24964234" />
@@ -944,8 +943,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/passes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="90" column="35" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
+        <state relative-caret-position="831">
+          <caret line="184" column="15" selection-start-line="184" selection-start-column="15" selection-end-line="184" selection-end-column="15" />
         </state>
       </provider>
     </entry>
