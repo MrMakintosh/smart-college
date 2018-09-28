@@ -31,7 +31,6 @@ class PassesController < ApplicationController
     affirmative_second = 0
     negative_second = 0
     @group = Group.all
-    passes_for_date = []
     study_year = []
     if (1..6).include? Time.now.month
       study_year.push Time.now.year - 1
@@ -44,12 +43,14 @@ class PassesController < ApplicationController
     @group.each do |group|
       @passes["#{group.number}"] = Hash.new
       (9..12).each do |first_month|
+        @passes["#{group.number}"]["id"] = group.id
+        @passes["#{group.number}"]["number"] = group.number
         @passes["#{group.number}"]["#{first_month}"] = Hash.new
         @passes["#{group.number}"]["#{first_month}"]["first_half"] = Hash.new
         @passes["#{group.number}"]["#{first_month}"]["second_half"] = Hash.new
         group.students.each do |student|
           student.passes.each do |pass|
-            if pass.date_of.month == "#{first_month}" and pass.date_for.month == "#{first_month}"
+            if pass.date_of.month == first_month and pass.date_for.month == first_month
               if (1..15).include? pass.date_of.day and (1..15).include? pass.date_for.day
                 if pass.cause == "1"
                   affirmative_first = affirmative_first + pass.hours
@@ -57,6 +58,12 @@ class PassesController < ApplicationController
                   negative_first = negative_first + pass.hours
                 end
               elsif (16..31).include? pass.date_of.day and (16..31).include? pass.date_for.day
+                if pass.cause == "1"
+                  affirmative_second = affirmative_second + pass.hours
+                else
+                  negative_second = negative_second + pass.hours
+                end
+              else ## If pass period include parts of two halfs of month we include passes to the second half
                 if pass.cause == "1"
                   affirmative_second = affirmative_second + pass.hours
                 else
@@ -106,6 +113,64 @@ class PassesController < ApplicationController
           affirmative_second = 0
           negative_second = 0
         end
+      end
+    end
+    render :json => @passes
+  end
+
+  def api_request_for_group
+    study_year = []
+    if (1..6).include? Time.now.month
+      study_year.push Time.now.year - 1
+      study_year.push Time.now.year
+    elsif (9..12).include? Time.now.month
+      study_year.push Time.now.year
+      study_year.push Time.now.year + 1
+    end
+    @passes = Hash.new
+    @group = Group.find(params[:id])
+    affirmative = 0
+    negative = 0
+    @passes["#{@group.number}"] = Hash.new
+    @group.students.each do |student|
+      @passes["#{@group.number}"]["#{student.id}"] = Hash.new
+      (9..12).each do |first_month|
+        @passes["#{@group.number}"]["#{student.id}"]["id"] = student.id
+        @passes["#{@group.number}"]["#{student.id}"]["snf"] = "#{student.surname} #{student.name} #{student.fathername}"
+        @passes["#{@group.number}"]["#{student.id}"]["#{first_month}"] = Hash.new
+          student.passes.each do |pass|
+            if pass.date_of.month == first_month and pass.date_for.month == first_month
+                if pass.cause == "1"
+                  affirmative = affirmative + pass.hours
+                else
+                  negative = negative + pass.hours
+                end
+            end
+          end
+          @passes["#{@group.number}"]["#{student.id}"]["#{first_month}"]["affirmative"] = affirmative
+          @passes["#{@group.number}"]["#{student.id}"]["#{first_month}"]["negative"] = negative
+          affirmative = 0
+          negative = 0
+      end
+    end
+    @group.students.each do |student|
+      (1..6).each do |first_month|
+        @passes["#{@group.number}"]["#{student.id}"]["id"] = student.id
+        @passes["#{@group.number}"]["#{student.id}"]["snf"] = "#{student.surname} #{student.name} #{student.fathername}"
+        @passes["#{@group.number}"]["#{student.id}"]["#{first_month}"] = Hash.new
+        student.passes.each do |pass|
+          if pass.date_of.month == first_month and pass.date_for.month == first_month
+            if pass.cause == "1"
+              affirmative = affirmative + pass.hours
+            else
+              negative = negative + pass.hours
+            end
+          end
+        end
+        @passes["#{@group.number}"]["#{student.id}"]["#{first_month}"]["affirmative"] = affirmative
+        @passes["#{@group.number}"]["#{student.id}"]["#{first_month}"]["negative"] = negative
+        affirmative = 0
+        negative = 0
       end
     end
     render :json => @passes

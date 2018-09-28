@@ -116,90 +116,7 @@
           </form>
         </div>
   </center>
-  <div id="table-header">
-    <table style="width: 100%" border="1">
-      <tr>
-        <th rowspan="4">Номер группы</th>
-        <th colspan="40">Пропуски занятий</th>
-        <th rowspan="4">Всего</th>
-      </tr>
-      <tr>
-        <th colspan="4">09</th>
-        <th colspan="4">10</th>
-        <th colspan="4">11</th>
-        <th colspan="4">12</th>
-        <th colspan="4">01</th>
-        <th colspan="4">02</th>
-        <th colspan="4">03</th>
-        <th colspan="4">04</th>
-        <th colspan="4">05</th>
-        <th colspan="4">06</th>
-      </tr>
-      <tr>
-        <th colspan="2">1-15</th>
-        <th colspan="2">1-30</th>
-        <th colspan="2">1-15</th>
-        <th colspan="2">16-31</th>
-        <th colspan="2">1-15</th>
-        <th colspan="2">16-30</th>
-        <th colspan="2">1-15</th>
-        <th colspan="2">16-31</th>
-        <th colspan="2">1-15</th>
-        <th colspan="2">1-30</th>
-        <th colspan="2">1-15</th>
-        <th colspan="2">16-28</th>
-        <th colspan="2">1-15</th>
-        <th colspan="2">16-31</th>
-        <th colspan="2">1-15</th>
-        <th colspan="2">16-30</th>
-        <th colspan="2">1-15</th>
-        <th colspan="2">16-31</th>
-        <th colspan="2">1-15</th>
-        <th colspan="2">16-30</th>
-      </tr>
-      <tr>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-        <th>Ув</th>
-        <th>Не ув</th>
-      </tr>
-    </table>
+
   </div>
   <div id="result">
 
@@ -212,14 +129,174 @@
           url: "/api_request_main/",
           dataType: 'json',
           success: function (data) {
+              var output = "<div id='table-header'><table style='width: 100%' border='1'><tr><th rowspan='4'>Номер группы</th><th colspan='40'>Пропуски занятий</th><th rowspan='3' colspan='2'>Всего</th></tr><tr>\n" +
+                  "        <th colspan=\"4\">09</th>\n" +
+                  "        <th colspan=\"4\">10</th>\n" +
+                  "        <th colspan=\"4\">11</th>\n" +
+                  "        <th colspan=\"4\">12</th>\n" +
+                  "        <th colspan=\"4\">01</th>\n" +
+                  "        <th colspan=\"4\">02</th>\n" +
+                  "        <th colspan=\"4\">03</th>\n" +
+                  "        <th colspan=\"4\">04</th>\n" +
+                  "        <th colspan=\"4\">05</th>\n" +
+                  "        <th colspan=\"4\">06</th>\n" +
+                  "      </tr>\n" +
+                  "      <tr>\n" +
+                  "        <th colspan=\"2\">1-15</th>\n" +
+                  "        <th colspan=\"2\">1-30</th>\n" +
+                  "        <th colspan=\"2\">1-15</th>\n" +
+                  "        <th colspan=\"2\">16-31</th>\n" +
+                  "        <th colspan=\"2\">1-15</th>\n" +
+                  "        <th colspan=\"2\">16-30</th>\n" +
+                  "        <th colspan=\"2\">1-15</th>\n" +
+                  "        <th colspan=\"2\">16-31</th>\n" +
+                  "        <th colspan=\"2\">1-15</th>\n" +
+                  "        <th colspan=\"2\">1-30</th>\n" +
+                  "        <th colspan=\"2\">1-15</th>\n" +
+                  "        <th colspan=\"2\">16-28</th>\n" +
+                  "        <th colspan=\"2\">1-15</th>\n" +
+                  "        <th colspan=\"2\">16-31</th>\n" +
+                  "        <th colspan=\"2\">1-15</th>\n" +
+                  "        <th colspan=\"2\">16-30</th>\n" +
+                  "        <th colspan=\"2\">1-15</th>\n" +
+                  "        <th colspan=\"2\">16-31</th>\n" +
+                  "        <th colspan=\"2\">1-15</th>\n" +
+                  "        <th colspan=\"2\">16-30</th>\n" +
+                  "      </tr>\n" +
+                  "      <tr>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "      </tr>";
+              var sum_affirmative = 0;
+              var sum_negative = 0;
               var j = 1;
-              for(var i = 0; i < data.students.length; i++){
-                  output += output_for_table({"students":data.students[i], "passes_affirmative":data.passes_affirmative, "passes_negative":data.passes_negative}, j, 0);
-                  j += 1;
+              for(var i in data){
+                output += "<tr><td><span onclick='groupLinkClick("+data[i]["id"]+")'>"+data[i]["number"]+"</span></td>";
+                for(var k = 9; k <= 12; k++){
+                    output += "<td>"+data[i][String(k)]["first_half"]["affirmative"]+"</td><td>"+data[i][String(k)]["first_half"]["negative"]+"</td><td>"+data[i][String(k)]["second_half"]["affirmative"]+"</td><td>"+data[i][String(k)]["second_half"]["negative"]+"</td>"; //Passes for 9 to 12 months
+                    sum_affirmative += data[i][String(k)]["first_half"]["affirmative"];
+                    sum_affirmative += data[i][String(k)]["second_half"]["affirmative"];
+                    sum_negative += data[i][String(k)]["first_half"]["negative"];
+                    sum_negative += data[i][String(k)]["second_half"]["negative"];
+                }
+                for(var k = 1; k <= 6; k++){
+                    output += "<td>"+data[i][String(k)]["first_half"]["affirmative"]+"</td><td>"+data[i][String(k)]["first_half"]["negative"]+"</td><td>"+data[i][String(k)]["second_half"]["affirmative"]+"</td><td>"+data[i][String(k)]["second_half"]["negative"]+"</td>"; //Passes for 1 to 6 months
+                    sum_affirmative += data[i][String(k)]["first_half"]["affirmative"];
+                    sum_affirmative += data[i][String(k)]["second_half"]["affirmative"];
+                    sum_negative += data[i][String(k)]["first_half"]["negative"];
+                    sum_negative += data[i][String(k)]["first_half"]["negative"];
+                }
+                output += "<td>"+sum_affirmative+"</td><td>"+sum_negative+"</td>";
+                output += "</tr>";
               }
               output += "</table>";
               $("#result").html(output);
           }
       })
-  })
+  });
+  function groupLinkClick(id) {
+      $.ajax({
+          type: 'GET',
+          url: "/api_request_for_group/"+id,
+          dataType: 'json',
+          success: function (data) {
+              var output = "<div id='table-header'><table style='width: 100%' border='1'><tr><th rowspan='3'>ФИО</th><th colspan='20'>Пропуски занятий</th><th rowspan='3' colspan='2'>Всего</th></tr><tr>\n" +
+                  "        <th colspan=\"2\">09</th>\n" +
+                  "        <th colspan=\"2\">10</th>\n" +
+                  "        <th colspan=\"2\">11</th>\n" +
+                  "        <th colspan=\"2\">12</th>\n" +
+                  "        <th colspan=\"2\">01</th>\n" +
+                  "        <th colspan=\"2\">02</th>\n" +
+                  "        <th colspan=\"2\">03</th>\n" +
+                  "        <th colspan=\"2\">04</th>\n" +
+                  "        <th colspan=\"2\">05</th>\n" +
+                  "        <th colspan=\"2\">06</th>\n" +
+                  "      </tr>\n" +
+                  "      <tr>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "        <th>Ув</th>\n" +
+                  "        <th>Не ув</th>\n" +
+                  "      </tr>";
+              var sum_affirmative = 0;
+              var sum_negative = 0;
+              var j = 1;
+              for(var i in data){
+                for(var a in data[i]){
+                  output += "<tr><td><a href='/student/"+data[i][a]["id"]+"'>"+data[i][a]["snf"]+"</a></td>";
+                  for(var k = 9; k <= 12; k++){
+                      output += "<td>"+data[i][a][String(k)]["affirmative"]+"</td><td>"+data[i][a][String(k)]["negative"]+"</td>"; //Passes for 9 to 12 months
+                      sum_affirmative += data[i][a][String(k)]["affirmative"];
+                      sum_negative += data[i][a][String(k)]["negative"];
+                  }
+                  for(var k = 1; k <= 6; k++){
+                      output += "<td>"+data[i][a][String(k)]["affirmative"]+"</td><td>"+data[i][a][String(k)]["negative"]+"</td>"; //Passes for 1 to 6 months
+                      sum_affirmative += data[i][a][String(k)]["affirmative"];
+                      sum_negative += data[i][a][String(k)]["negative"];
+                  }
+                  output += "<td>"+sum_affirmative+"</td><td>"+sum_negative+"</td>";
+                  output += "</tr>";
+                }
+              }
+              output += "</table>";
+              $("#result").html(output);
+          }
+      })
+  }
 </script>

@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   get 'departments/index'
 
-  get '/api_request_main/', to: 'passes#api_request_main'
+  get '/api_request_main', to: 'passes#api_request_main'
+
+  get 'api_request_for_group/:id', to: 'passes#api_request_for_group'
 
   get '/api_request/:id/:date_of/:date_for/:flag', to: 'student#api_request'
 
