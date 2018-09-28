@@ -50,24 +50,26 @@ class PassesController < ApplicationController
         @passes["#{group.number}"]["#{first_month}"]["second_half"] = Hash.new
         group.students.each do |student|
           student.passes.each do |pass|
-            if pass.date_of.month == first_month and pass.date_for.month == first_month
-              if (1..15).include? pass.date_of.day and (1..15).include? pass.date_for.day
-                if pass.cause == "1"
-                  affirmative_first = affirmative_first + pass.hours
-                else
-                  negative_first = negative_first + pass.hours
-                end
-              elsif (16..31).include? pass.date_of.day and (16..31).include? pass.date_for.day
-                if pass.cause == "1"
-                  affirmative_second = affirmative_second + pass.hours
-                else
-                  negative_second = negative_second + pass.hours
-                end
-              else ## If pass period include parts of two halfs of month we include passes to the second half
-                if pass.cause == "1"
-                  affirmative_second = affirmative_second + pass.hours
-                else
-                  negative_second = negative_second + pass.hours
+            unless pass.date_of == nil
+              if pass.date_of.month == first_month and pass.date_for.month == first_month
+                if (1..15).include? pass.date_of.day and (1..15).include? pass.date_for.day
+                  if pass.cause == "1"
+                    affirmative_first = affirmative_first + pass.hours
+                  else
+                    negative_first = negative_first + pass.hours
+                  end
+                elsif (16..31).include? pass.date_of.day and (16..31).include? pass.date_for.day
+                  if pass.cause == "1"
+                    affirmative_second = affirmative_second + pass.hours
+                  else
+                    negative_second = negative_second + pass.hours
+                  end
+                else ## If pass period include parts of two halfs of month we include passes to the second half
+                  if pass.cause == "1"
+                    affirmative_second = affirmative_second + pass.hours
+                  else
+                    negative_second = negative_second + pass.hours
+                  end
                 end
               end
             end
