@@ -228,6 +228,8 @@
                 }
                 output += "<td>"+sum_affirmative+"</td><td>"+sum_negative+"</td>";
                 output += "</tr>";
+                sum_affirmative = 0;
+                sum_negative = 0;
               }
               output += "</table>";
               $("#result").html(output);
@@ -292,6 +294,8 @@
                   }
                   output += "<td>"+sum_affirmative+"</td><td>"+sum_negative+"</td>";
                   output += "</tr>";
+                  sum_affirmative = 0;
+                  sum_negative = 0;
                 }
               }
               output += "</table>";

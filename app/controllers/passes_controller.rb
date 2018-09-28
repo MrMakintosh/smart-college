@@ -48,7 +48,7 @@ class PassesController < ApplicationController
         @passes["#{group.number}"]["#{first_month}"] = Hash.new
         @passes["#{group.number}"]["#{first_month}"]["first_half"] = Hash.new
         @passes["#{group.number}"]["#{first_month}"]["second_half"] = Hash.new
-        group.students.each do |student|
+        group.students.sort_by {|obj| obj.surname}.each do |student|
           student.passes.each do |pass|
             unless pass.date_of == nil
               if pass.date_of.month == first_month and pass.date_for.month == first_month
@@ -96,7 +96,7 @@ class PassesController < ApplicationController
         @passes["#{group.number}"]["#{second_month}"] = Hash.new
         @passes["#{group.number}"]["#{second_month}"]["first_half"] = Hash.new
         @passes["#{group.number}"]["#{second_month}"]["second_half"] = Hash.new
-        group.students.each do |student|
+        group.students.sort_by {|obj| obj.surname}.each do |student|
           student.passes.each do |pass|
             unless pass.date_of == nil
               if pass.date_of.month == "#{second_month}" and pass.date_for.month == "#{second_month}"
@@ -152,7 +152,7 @@ class PassesController < ApplicationController
     affirmative = 0
     negative = 0
     @passes["#{@group.number}"] = Hash.new
-    @group.students.each do |student|
+    @group.students.sort_by {|obj| obj.surname}.each do |student|
       @passes["#{@group.number}"]["#{student.id}"] = Hash.new
       (9..12).each do |first_month|
         @passes["#{@group.number}"]["#{student.id}"]["id"] = student.id
@@ -175,7 +175,7 @@ class PassesController < ApplicationController
           negative = 0
       end
     end
-    @group.students.each do |student|
+    @group.students.sort_by {|obj| obj.surname}.each do |student|
       (1..6).each do |first_month|
         @passes["#{@group.number}"]["#{student.id}"]["id"] = student.id
         @passes["#{@group.number}"]["#{student.id}"]["snf"] = "#{student.surname} #{student.name} #{student.fathername}"
