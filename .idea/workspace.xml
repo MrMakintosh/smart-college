@@ -4,7 +4,6 @@
     <list default="true" id="a3ac821b-154f-461f-a334-02abd9be673a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/passes_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/passes_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/profile.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/profile.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -67,7 +66,7 @@
         <counts>
           <entry key="erb" value="4958" />
           <entry key="js" value="348" />
-          <entry key="rb" value="2835" />
+          <entry key="rb" value="2845" />
           <entry key="scss" value="53" />
         </counts>
       </usages-collector>
@@ -75,7 +74,7 @@
         <counts>
           <entry key="JavaScript" value="348" />
           <entry key="RHTML" value="4958" />
-          <entry key="Ruby" value="2835" />
+          <entry key="Ruby" value="2845" />
           <entry key="SCSS" value="53" />
         </counts>
       </usages-collector>
@@ -115,7 +114,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/departments/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-5">
-              <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+              <caret column="3" selection-start-column="3" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -124,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/passes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="495">
-              <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+              <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -132,8 +131,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/passes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-432">
-              <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+            <state relative-caret-position="383">
+              <caret line="78" column="22" lean-forward="true" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -505,12 +504,12 @@
       <workItem from="1536519224527" duration="1181000" />
       <workItem from="1536564696209" duration="43614000" />
       <workItem from="1537439527750" duration="155000" />
-      <workItem from="1537767132622" duration="46204000" />
+      <workItem from="1537767132622" duration="47170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="360052000" />
+    <option name="totallyTimeSpent" value="361018000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -525,7 +524,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17167382" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17167382" />
       <window_info id="Structure" order="1" weight="0.24964234" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -536,7 +535,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972136" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5078684" side_tool="true" weight="0.2159228" />
-      <window_info anchor="bottom" x="0" y="535" width="1336" height="186" id="Terminal" order="8" sideWeight="0.49213162" visible="true" weight="0.2159228" />
+      <window_info active="true" anchor="bottom" x="0" y="535" width="1336" height="186" id="Terminal" order="8" sideWeight="0.49213162" visible="true" weight="0.2159228" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.2689988" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
@@ -863,7 +862,7 @@
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/passes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
-          <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -905,7 +904,7 @@
     <entry file="file://$PROJECT_DIR$/app/views/departments/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5">
-          <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -937,8 +936,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/passes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-432">
-          <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+        <state relative-caret-position="383">
+          <caret line="78" column="22" lean-forward="true" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
         </state>
       </provider>
     </entry>
