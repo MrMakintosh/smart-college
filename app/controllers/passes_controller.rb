@@ -58,13 +58,7 @@ class PassesController < ApplicationController
                   else
                     negative_first = negative_first + pass.hours
                   end
-                elsif (16..31).include? pass.date_of.day and (16..31).include? pass.date_for.day
-                  if pass.cause == "1"
-                    affirmative_second = affirmative_second + pass.hours
-                  else
-                    negative_second = negative_second + pass.hours
-                  end
-                else ## If pass period include parts of two halfs of month we include passes to the second half
+                else
                   if pass.cause == "1"
                     affirmative_second = affirmative_second + pass.hours
                   else
