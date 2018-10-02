@@ -209,11 +209,39 @@
                   "      </tr>";
               var sum_affirmative = 0;
               var sum_negative = 0;
+              var affirmative_first;
+              var affirmative_second;
+              var negative_first;
+              var negative_second;
               var j = 1;
               for(var i in data){
                 output += "<tr><td><span onclick='groupLinkClick("+data[i]["id"]+")'>"+data[i]["number"]+"</span></td>";
                 for(var k = 9; k <= 12; k++){
-                    output += "<td>"+data[i][String(k)]["first_half"]["affirmative"]+"</td><td>"+data[i][String(k)]["first_half"]["negative"]+"</td><td>"+data[i][String(k)]["second_half"]["affirmative"]+"</td><td>"+data[i][String(k)]["second_half"]["negative"]+"</td>"; //Passes for 9 to 12 months
+                    if(data[i][a][String(k)]["first_half"]["affirmative"] < 0) {
+                        affirmative_first = 0;
+                    }
+                    else {
+                        affirmative_first = data[i][a][String(k)]["first_half"]["affirmative"];
+                    }
+                    if(data[i][a][String(k)]["second_half"]["affirmative"] < 0) {
+                        affirmative_second = 0;
+                    }
+                    else {
+                        affirmative_second = data[i][a][String(k)]["second_half"]["affirmative"];
+                    }
+                    if(data[i][a][String(k)]["second_half"]["negative"] < 0) {
+                        negative_second = 0;
+                    }
+                    else {
+                        negative_second = data[i][a][String(k)]["second_half"]["negative"];
+                    }
+                    if(data[i][a][String(k)]["first_half"]["negative"] < 0) {
+                        negative_first = 0;
+                    }
+                    else {
+                        negative_first = data[i][a][String(k)]["first_half"]["negative"];
+                    }
+                    output += "<td>"+affirmative_first+"</td><td>"+negative_first+"</td><td>"+affirmative_second+"</td><td>"+negative_second+"</td>"; //Passes for 9 to 12 months
                     sum_affirmative += data[i][String(k)]["first_half"]["affirmative"];
                     sum_affirmative += data[i][String(k)]["second_half"]["affirmative"];
                     sum_negative += data[i][String(k)]["first_half"]["negative"];
@@ -278,8 +306,6 @@
                   "      </tr>";
               var sum_affirmative = 0;
               var sum_negative = 0;
-              var affirmative;
-              var negative;
               var j = 1;
               for(var i in data){
                 for(var a in data[i]){
