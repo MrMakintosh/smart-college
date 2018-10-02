@@ -29,6 +29,7 @@ class GroupController < ApplicationController
   def update
     @group = Group.find(params[:id])
     @old = @group.number
+    @specialty = Specialty.find(params[:specialty])
     if @group.update group_params
       @group.update_attributes :specialty_id => params[:specialty]
       redirect_to specialty_path(@specialty), notice: "Группа #{@old} успешно изменена на #{@group.number}"

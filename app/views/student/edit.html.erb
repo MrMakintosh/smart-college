@@ -8,10 +8,13 @@
         <div class="group">
           <p>Номер группы</p>
           <select name="group">
+            <option value="<% @student.group_id %>>"><%= @student.group.number %></option>
             <% @department.each do |department| %>
                 <% department.specialties.each do |specialty| %>
                     <% specialty.groups.each do |g| %>
+                      <% unless g.id == @student.group_id %>
                         <option value="<%= g.id %>"><%= g.number %>(<%= department.name %>)</option>
+                      <% end %>
                     <% end %>
                 <% end %>
             <% end %>

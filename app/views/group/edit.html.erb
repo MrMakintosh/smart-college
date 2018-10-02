@@ -11,9 +11,12 @@
           <span class="bar"></span>
           <label>Название специальности</label>
           <select name="specialty">
+            <option value="<%= @group.specialty_id %>"><%= @group.specialty.name %>(<%= @group.specialty.department.name %>)</option>
             <% @department.each do |department| %>
                 <% department.specialties.each do |s| %>
+                  <% unless s.id == @group.specialty_id %>
                     <option value="<%= s.id %>"><%= s.name %>(<%= department.name %>)</option>
+                  <% end %>
                 <% end %>
             <% end %>
           </select>

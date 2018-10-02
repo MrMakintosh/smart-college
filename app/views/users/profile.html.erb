@@ -292,6 +292,12 @@
                       sum_affirmative += data[i][a][String(k)]["affirmative"];
                       sum_negative += data[i][a][String(k)]["negative"];
                   }
+                  if(sum_affirmative < 0) {
+                      sum_affirmative = 0;
+                  }
+                  if(sum_negative < 0) {
+                      sum_negative = 0;
+                  }
                   output += "<td>"+sum_affirmative+"</td><td>"+sum_negative+"</td>";
                   output += "</tr>";
                   sum_affirmative = 0;
