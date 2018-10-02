@@ -278,12 +278,26 @@
                   "      </tr>";
               var sum_affirmative = 0;
               var sum_negative = 0;
+              var affirmative;
+              var negative;
               var j = 1;
               for(var i in data){
                 for(var a in data[i]){
                   output += "<tr><td><a href='/student/"+data[i][a]["id"]+"'>"+data[i][a]["snf"]+"</a></td>";
                   for(var k = 9; k <= 12; k++){
-                      output += "<td>"+data[i][a][String(k)]["affirmative"]+"</td><td>"+data[i][a][String(k)]["negative"]+"</td>"; //Passes for 9 to 12 months
+                      if(data[i][a][String(k)]["affirmative"] < 0) {
+                          affirmative = 0;
+                      }
+                      else {
+                          affirmative = data[i][a][String(k)]["affirmative"];
+                      }
+                      if(data[i][a][String(k)]["negative"] < 0) {
+                          negative = 0;
+                      }
+                      else {
+                          negative = data[i][a][String(k)]["negative"];
+                      }
+                      output += "<td>"+affirmative+"</td><td>"+negative+"</td>"; //Passes for 9 to 12 months
                       sum_affirmative += data[i][a][String(k)]["affirmative"];
                       sum_negative += data[i][a][String(k)]["negative"];
                   }
