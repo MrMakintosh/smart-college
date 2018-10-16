@@ -8,7 +8,7 @@
         <div class="group">
           <p>Номер группы</p>
           <select name="group">
-            <option value="<% @student.group_id %>>"><%= @student.group.number %></option>
+            <option value="<%= @student.group_id %>"><%= @student.group.number %></option>
             <% @department.each do |department| %>
                 <% department.specialties.each do |specialty| %>
                     <% specialty.groups.each do |g| %>

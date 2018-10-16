@@ -29,7 +29,9 @@ class StudentController < ApplicationController
   end
 
   def update
-    @group = Group.find(params[:group])
+    unless params[:group].empty?
+      @group = Group.find(params[:group])
+    end
     @student = Student.find(params[:id])
     if @student.update student_params
       @student.update_attributes :group_id => params[:group]
