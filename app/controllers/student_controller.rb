@@ -33,7 +33,7 @@ class StudentController < ApplicationController
     @student = Student.find(params[:id])
     if @student.update student_params
       @student.update_attributes :group_id => params[:group]
-      redirect_to group_path(@group)
+      redirect_to "/group/#{@student.group.id}"
     end
   end
 
