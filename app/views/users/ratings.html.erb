@@ -7,26 +7,13 @@
 </style>
 <center>
   <a href="javascript:history.back()" id="back" class="action-button shadow animate blue">Назад</a>
+  <a href="<%= ratings_path(9) %>" class="action-button shadow animate blue">Сентябрь</a>
+  <a href="<%= ratings_path(10) %>" class="action-button shadow animate blue">Октябрь</a>
+  <a href="<%= ratings_path(11) %>" class="action-button shadow animate blue">Ноябрь</a>
+  <a href="<%= ratings_path(12) %>" class="action-button shadow animate blue">Декабрь</a>
 </center>
 <div id="rating-students">
   <%
-    @passes_affirmative = Array.new
-    @passes_negative = Array.new
-    affirmative = 0
-    negative = 0
-    @students.each do |student|
-      student.passes.each do |pass|
-        if pass.cause == "1"
-          affirmative = affirmative + pass.hours
-        else
-          negative = negative + pass.hours
-        end
-      end
-      @passes_affirmative[student.id] = affirmative
-      @passes_negative[student.id] = negative
-      affirmative = 0
-      negative = 0
-    end
     k = 0
     studs = []
     @students.each do |student|
