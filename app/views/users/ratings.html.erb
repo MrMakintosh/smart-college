@@ -5,16 +5,81 @@
     color: white;
   }
 </style>
+<script>
+  function linkClick() {
+      location.replace('/users/ratings/1/'+document.getElementById('date_of').value+'/'+document.getElementById('date_for').value);
+  }
+</script>
 <center>
   <a href="javascript:history.back()" id="back" class="action-button shadow animate blue">Назад</a>
-  <a href="<%= ratings_path(9) %>" class="action-button shadow animate blue">Сентябрь</a>
-  <a href="<%= ratings_path(10) %>" class="action-button shadow animate blue">Октябрь</a>
-  <a href="<%= ratings_path(11) %>" class="action-button shadow animate blue">Ноябрь</a>
-  <a href="<%= ratings_path(12) %>" class="action-button shadow animate blue">Декабрь</a>
+  <table border="0" style="text-align: center;">
+    <tr>
+      <td style="padding-bottom: 50px;">
+        <a href="<%= ratings_path(9, 0, 0) %>" class="action-button shadow animate blue">Сентябрь</a>
+      </td>
+      <td style="padding-bottom: 50px;">
+        <a href="<%= ratings_path(10, 0, 0) %>" class="action-button shadow animate blue">Октябрь</a>
+      </td>
+      <td style="padding-bottom: 50px;">
+        <a href="<%= ratings_path(11, 0, 0) %>" class="action-button shadow animate blue">Ноябрь</a>
+      </td>
+      <td style="padding-bottom: 50px;">
+        <a href="<%= ratings_path(12, 0, 0) %>" class="action-button shadow animate blue">Декабрь</a>
+      </td>
+      <td style="padding-bottom: 50px;">
+        <a href="<%= ratings_path(1, 0, 0) %>" class="action-button shadow animate blue">Январь</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="<%= ratings_path(2, 0, 0) %>" class="action-button shadow animate blue">Февраль</a>
+      </td>
+      <td>
+        <a href="<%= ratings_path(3, 0, 0) %>" class="action-button shadow animate blue">Март</a>
+      </td>
+      <td>
+        <a href="<%= ratings_path(4, 0, 0) %>" class="action-button shadow animate blue">Апрель</a>
+      </td>
+      <td>
+        <a href="<%= ratings_path(5, 0, 0) %>" class="action-button shadow animate blue">Май</a>
+      </td>
+      <td>
+        <a href="<%= ratings_path(6, 0, 0) %>" class="action-button shadow animate blue">Июнь</a>
+      </td>
+    </tr>
+  </table>
 </center>
 <div id="rating-students">
+<center>
+  <table border="0" style="text-align: center;">
+    <tr>
+      <td>
+        Промежуток с
+      </td>
+      <td>
+        <input type="date" id="date_of">
+      </td>
+      <td>
+        по
+      </td>
+      <td>
+        <input type="date" id="date_for">
+      </td>
+      <td>
+        <a href="javascript:linkClick()" class="action-button shadow animate blue">Посмотреть</a>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5">
+        <h4>Показан промежуток с <%= @date_of %> по <%= @date_for %></h4>
+      </td>
+    </tr>
+  </table>
+</center>
+</div>
+<div id="rating-students">
   <%
-    k = 0
+    k =0
     studs = []
     @students.each do |student|
       studs[k] = Hash.new
