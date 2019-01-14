@@ -7,7 +7,7 @@
 </style>
 <script>
   function linkClick() {
-      location.replace('/users/ratings/1/'+document.getElementById('date_of').value+'/'+document.getElementById('date_for').value+"<%= @group %>");
+      location.replace('/users/ratings/1/'+document.getElementById('date_of').value+'/'+document.getElementById('date_for').value+"/<%= @group %>");
   }
   function excelClick() {
       if(document.getElementById('date_of').value){
