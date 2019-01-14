@@ -10,6 +10,7 @@ gem 'will_paginate'
 gem 'spreadsheet'
 gem 'authlogic', '3.4.6'
 gem 'pg_search'
+gem 'spreadsheet'
 
 group :development do
   gem 'rspec-rails'

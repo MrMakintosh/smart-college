@@ -7,44 +7,61 @@
 </style>
 <script>
   function linkClick() {
-      location.replace('/users/ratings/1/'+document.getElementById('date_of').value+'/'+document.getElementById('date_for').value);
+      location.replace('/users/ratings/1/'+document.getElementById('date_of').value+'/'+document.getElementById('date_for').value+"<%= @group %>");
+  }
+  function excelClick() {
+      if(document.getElementById('date_of').value){
+          location.replace('/users/print/<%= @month %>/'+document.getElementById('date_of').value+'/'+document.getElementById('date_for').value+"/<%= @group %>");
+      }
+      else
+          location.replace('/users/print/<%= @month %>/0/0/<%= @group %>');
   }
 </script>
 <center>
   <a href="javascript:history.back()" id="back" class="action-button shadow animate blue">Назад</a>
   <table border="0" style="text-align: center;">
     <tr>
+      <td colspan="5">
+        <% unless @group == "1"%>
+          <a href="/users/ratings/<%= Time.now.month.to_i %>/0/0/1" class="action-button shadow animate blue">Рейтинг групп</a>
+        <% else %>
+          <a href="/users/ratings/<%= Time.now.month.to_i %>/0/0/0" class="action-button shadow animate blue">Рейтинг учащихся</a>
+        <% end %>
+        <br><br><br>
+      </td>
+    </tr>
+    <tr>
       <td style="padding-bottom: 50px;">
-        <a href="<%= ratings_path(9, 0, 0) %>" class="action-button shadow animate blue">Сентябрь</a>
+        <a href="<%= ratings_path(9, 0, 0, @group) %>" class="action-button shadow animate blue">Сентябрь</a>
       </td>
       <td style="padding-bottom: 50px;">
-        <a href="<%= ratings_path(10, 0, 0) %>" class="action-button shadow animate blue">Октябрь</a>
+        <a href="<%= ratings_path(10, 0, 0, @group) %>" class="action-button shadow animate blue">Октябрь</a>
       </td>
       <td style="padding-bottom: 50px;">
-        <a href="<%= ratings_path(11, 0, 0) %>" class="action-button shadow animate blue">Ноябрь</a>
+        <a href="<%= ratings_path(11, 0, 0, @group) %>" class="action-button shadow animate blue">Ноябрь</a>
       </td>
       <td style="padding-bottom: 50px;">
-        <a href="<%= ratings_path(12, 0, 0) %>" class="action-button shadow animate blue">Декабрь</a>
+        <a href="<%= ratings_path(12, 0, 0, @group) %>" class="action-button shadow animate blue">Декабрь</a>
       </td>
       <td style="padding-bottom: 50px;">
-        <a href="<%= ratings_path(1, 0, 0) %>" class="action-button shadow animate blue">Январь</a>
+        <a href="<%= ratings_path(1, 0, 0, @group) %>" class="action-button shadow animate blue">Январь</a>
       </td>
     </tr>
     <tr>
       <td>
-        <a href="<%= ratings_path(2, 0, 0) %>" class="action-button shadow animate blue">Февраль</a>
+        <a href="<%= ratings_path(2, 0, 0, @group) %>" class="action-button shadow animate blue">Февраль</a>
       </td>
       <td>
-        <a href="<%= ratings_path(3, 0, 0) %>" class="action-button shadow animate blue">Март</a>
+        <a href="<%= ratings_path(3, 0, 0, @group) %>" class="action-button shadow animate blue">Март</a>
       </td>
       <td>
-        <a href="<%= ratings_path(4, 0, 0) %>" class="action-button shadow animate blue">Апрель</a>
+        <a href="<%= ratings_path(4, 0, 0, @group) %>" class="action-button shadow animate blue">Апрель</a>
       </td>
       <td>
-        <a href="<%= ratings_path(5, 0, 0) %>" class="action-button shadow animate blue">Май</a>
+        <a href="<%= ratings_path(5, 0, 0, @group) %>" class="action-button shadow animate blue">Май</a>
       </td>
       <td>
-        <a href="<%= ratings_path(6, 0, 0) %>" class="action-button shadow animate blue">Июнь</a>
+        <a href="<%= ratings_path(6, 0, 0, @group) %>" class="action-button shadow animate blue">Июнь</a>
       </td>
     </tr>
   </table>
@@ -74,60 +91,155 @@
         <h4>Показан промежуток с <%= @date_of %> по <%= @date_for %></h4>
       </td>
     </tr>
+    <tr>
+      <td colspan="5">
+        <a href="javascript:excelClick()" class="action-button shadow animate blue">Вывод в Excel</a>
+      </td>
+    </tr>
   </table>
 </center>
 </div>
 <div id="rating-students">
   <%
-    k =0
-    studs = []
-    @students.each do |student|
-      studs[k] = Hash.new
-      studs[k][:id] = student.id
-      studs[k][:fio] = "#{student.surname} #{student.name} #{student.fathername}"
-      studs[k][:group] = student.group.number
-      studs[k][:passes_n] = @passes_negative[student.id]
-      studs[k][:passes_a] = @passes_affirmative[student.id]
-      studs[k][:passes_all] = @passes_affirmative[student.id] + @passes_negative[student.id]
-      k = k + 1
+    unless @group == "1"
+      k =0
+      studs = []
+      @students.each do |student|
+        studs[k] = Hash.new
+        studs[k][:id] = student.id
+        studs[k][:fio] = "#{student.surname} #{student.name} #{student.fathername}"
+        studs[k][:group] = student.group.number
+        studs[k][:passes_n] = @passes_negative[student.id]
+        studs[k][:passes_a] = @passes_affirmative[student.id]
+        studs[k][:passes_all] = @passes_affirmative[student.id] + @passes_negative[student.id]
+        k = k + 1
+      end
+      studs = studs.sort_by { |k| k[:passes_n] }
+      studs = studs.reverse!
+    else
+      k = 0
+      groups = []
+      @groups.each do |group|
+        groups[k] = Hash.new
+        groups[k][:id] = group.id
+        groups[k][:number] = group.number
+        groups[k][:passes_n] = @passes_negative[group.id]
+        groups[k][:passes_a] = @passes_affirmative[group.id]
+        groups[k][:passes_all] = @passes_affirmative[group.id] + @passes_negative[group.id]
+        k = k + 1
+      end
+      groups = groups.sort_by { |k| k[:passes_n] }
+      groups = groups.reverse!
     end
-    studs = studs.sort_by { |k| k[:passes_n] }
-    studs = studs.reverse!
   %>
   <center>
   <table border="1" style="text-align: center">
     <tr>
       <th>№</th>
-      <th>ФИО</th>
+      <% unless @group == "1" %>
+        <th>ФИО</th>
+      <% end %>
       <th>Группа</th>
       <th>Пропуски по уважительной причине</th>
       <th>Пропуски по неуважительной причине</th>
       <th>Всего пропусков</th>
+      <th>Примечание</th>
     </tr>
     <% i = 1 %>
-    <% studs.each do |studs| %>
+    <%
+      sum_a = 0
+      sum_n = 0
+      sum_all = 0
+    %>
+    <% unless @group == "1"%>
+      <% studs.each do |studs| %>
+          <tr>
+            <td>
+              <%= i %>
+            </td>
+            <td>
+              <%= link_to "#{studs[:fio]}", student_path(studs[:id]) %>
+            </td>
+            <td>
+              <%= studs[:group] %>
+            </td>
+            <td>
+              <%= studs[:passes_a] %>ч
+              <%
+                sum_a = sum_a + studs[:passes_a]
+              %>
+            </td>
+            <td>
+              <%= studs[:passes_n] %>ч
+              <%
+                sum_n = sum_n + studs[:passes_n]
+              %>
+            </td>
+            <td>
+              <%= studs[:passes_all] %>
+              <%
+                sum_all = sum_all + studs[:passes_all]
+              %>
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <% i = i + 1 %>
+      <% end %>
+    <% else %>
+      <% groups.each do |groups| %>
         <tr>
           <td>
             <%= i %>
           </td>
           <td>
-            <%= link_to "#{studs[:fio]}", student_path(studs[:id]) %>
+            <%= groups[:number] %>
           </td>
           <td>
-            <%= studs[:group] %>
+            <%= groups[:passes_a] %>ч
+            <%
+              sum_a = sum_a + groups[:passes_a]
+            %>
           </td>
           <td>
-            <%= studs[:passes_a] %>ч
+            <%= groups[:passes_n] %>ч
+            <%
+              sum_n = sum_n + groups[:passes_n]
+            %>
           </td>
           <td>
-            <%= studs[:passes_n] %>ч
+            <%= groups[:passes_all] %>
+            <%
+              sum_all = sum_all + groups[:passes_all]
+            %>
           </td>
           <td>
-            <%= studs[:passes_all] %>
+
           </td>
         </tr>
         <% i = i + 1 %>
+      <% end %>
     <% end %>
+    <tr>
+      <% unless @group == "1" %>
+        <td colspan="3">
+      <% else %>
+        <td colspan="2">
+      <% end %>
+        Всего:
+      </td>
+      <td>
+        <%= sum_a %>
+      </td>
+      <td>
+        <%= sum_n %>
+      </td>
+      <td>
+        <%= sum_all %>
+      </td>
+      <td></td>
+    </tr>
   </table>
   </center>
 </div>

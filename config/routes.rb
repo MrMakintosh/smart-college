@@ -27,9 +27,11 @@ Rails.application.routes.draw do
 
   get '/search/:term', to: 'student#search'
 
-  get '/users/ratings/:month/:date_of/:date_for', to: 'users#ratings', as: 'ratings'
+  get '/users/ratings/:month/:date_of/:date_for/:group', to: 'users#ratings', as: 'ratings'
 
   get '/passes/index'
+
+  get 'users/print/:month/:date_of/:date_for/:group', to: 'users#print', as: 'print'
 
   post 'specialties', to: 'specialty#create'
   post 'groups', to: 'group#create'

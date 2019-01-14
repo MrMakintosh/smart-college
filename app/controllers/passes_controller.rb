@@ -93,7 +93,7 @@ class PassesController < ApplicationController
         group.students.sort_by {|obj| obj.surname}.each do |student|
           student.passes.each do |pass|
             unless pass.date_of == nil
-              if pass.date_of.month == "#{second_month}" and pass.date_for.month == "#{second_month}"
+              if pass.date_of.month == second_month and pass.date_for.month == second_month
                 if (1..15).include? pass.date_of.day and (1..15).include? pass.date_for.day
                   if pass.cause == "1"
                     affirmative_first = affirmative_first + pass.hours
