@@ -118,15 +118,15 @@ class PassesController < ApplicationController
               end
             end
           end
-          @passes["#{group.number}"]["#{second_month}"]["first_half"]["affirmative"] = affirmative_first
-          @passes["#{group.number}"]["#{second_month}"]["first_half"]["negative"] = negative_first
-          @passes["#{group.number}"]["#{second_month}"]["second_half"]["affirmative"] = affirmative_second
-          @passes["#{group.number}"]["#{second_month}"]["second_half"]["negative"] = negative_second
-          affirmative_first = 0
-          negative_first = 0
-          affirmative_second = 0
-          negative_second = 0
         end
+        @passes["#{group.number}"]["#{second_month}"]["first_half"]["affirmative"] = affirmative_first
+        @passes["#{group.number}"]["#{second_month}"]["first_half"]["negative"] = negative_first
+        @passes["#{group.number}"]["#{second_month}"]["second_half"]["affirmative"] = affirmative_second
+        @passes["#{group.number}"]["#{second_month}"]["second_half"]["negative"] = negative_second
+        affirmative_first = 0
+        negative_first = 0
+        affirmative_second = 0
+        negative_second = 0
       end
     end
     render :json => @passes
